@@ -1,25 +1,40 @@
-# Welcome to the MathPi Club Archive 🥧
+# Welcome to the MathPi Club 🥧
 
-This is the central repository for math review lectures and past exam papers at [Your University Name].
-
----
-
-## 📚 Course Resources
-Find notes and exams organized by course code:
-
-### MAT2060: [Honor Mathematical Analysis]
-* [2022 Midterm Exam](./exams/MAT2060/MAT2060_2022_Midterm.pdf)
-* [2024 Midterm Exam](./exams/MAT2060/MAT2060_2024_Midterm.pdf)
-
-### [Add Next Course Code]
-* [View Exam Archive](./exams/CourseCode/)
-* [View Lecture Notes](./notes/CourseCode/)
+This is the central repository for math review lectures and past exam papers at The Chinese University of HongKong,Shenzhen.
 
 ---
 
-## 📢 Recent Activities
-* **Dec 2025:** Uploaded the latest review materials for MAT2060.
-* **Nov 2025:** Held the mid-semester review session.
+## 📑 Exam Papers
 
+### MAT1012: Honor Calculus II
+* **2024**
+  * [Midterm Exam Paper](./exams/MAT1012/MAT1012_2024_Midterm.pdf)
+* **2022**
+  * [Midterm Exam Paper](./exams/MAT1012/MAT1012_2022_Midterm.pdf).
+
+
+### MAT2060: Honor Mathematical Analysis
+* **2024**
+  * [Midterm Exam Paper](./exams/MAT2060/MAT2060_2024_Midterm.pdf)
+* **2022**
+  * [Midterm Exam Paper](./exams/MAT2060/MAT2060_2022_Midterm.pdf)
+
+
+### MAT3006: Real Analysis
+* **2025**
+  * [Midterm Exam Paper](./exams/MAT3006/MAT3006_2025_Midterm.pdf).
+  * [Final EXam Paper](./exams/MAT3006/MAT3006_2025_Final.pdf)
 ---
-[Contact the MathPi Club](mailto:your-email@university.edu)
+
+## 📓 Review Lecture Notes (Slides)
+### MAT2060: Honor Mathematical Analysis
+* **2025**
+  * [Final Review Lectures](./notes/MAT2060/MAT2060_Final_slides.pdf)
+
+
+### MAT3006: Real Analysis
+* **2025**
+  * [Final Review Lectures](./notes/MAT2060/MAT3006_Final_slides.pdf)
+---
+
+[Contact the MathPi Club](mailto:mathpi@link.cuhk.edu.cn)
