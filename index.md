@@ -23,7 +23,7 @@ This is the central repository for math review lectures and past exam papers at 
 ### MAT3006: Real Analysis
 * **2025**
   * [Midterm Exam Paper](./exams/MAT3006/MAT3006_2025_Midterm.pdf).
-  * [Final EXam Paper](./exams/MAT3006/MAT3006_2025_Final.pdf)
+  * [Final Exam Paper](./exams/MAT3006/MAT3006_2025_Final.pdf)
 ---
 
 ## 📓 Review Lecture Notes (Slides)
