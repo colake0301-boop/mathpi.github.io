@@ -34,7 +34,7 @@ This is the central repository for math review lectures and past exam papers at 
 
 ### MAT3006: Real Analysis
 * **2025**
-  * [Final Review Lectures](./notes/MAT2060/MAT3006_Final_slides.pdf)
+  * [Final Review Lectures](./notes/MAT3006/MAT3006_Final_slides.pdf)
  
 ---
 [Contact the MathPi Club](mailto:mathpi@link.cuhk.edu.cn)
