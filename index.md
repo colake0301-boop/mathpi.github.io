@@ -7,9 +7,9 @@ This is the central repository for math review lectures and past exam papers at 
 ## 📚 Course Resources
 Find notes and exams organized by course code:
 
-### MAT2060: [Course Name, e.g., Statistics]
-* [View Exam Archive](./exams/MAT2060/)
-* [View Lecture Notes](./notes/MAT2060/)
+### MAT2060: [Honor Mathematical Analysis]
+* [2022 Midterm Exam](./exams/MAT2060/MAT2060_2022_Midterm.pdf)
+* [2024 Midterm Exam](./exams/MAT2060/MAT2060_2024_Midterm.pdf)
 
 ### [Add Next Course Code]
 * [View Exam Archive](./exams/CourseCode/)
