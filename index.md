@@ -1,3 +1,18 @@
+<style>
+  :root { --primary: #003b71; --secondary: #f4f4f4; --text: #333; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; color: var(--text); background-color: #fff; }
+  h1, h2, h3 { color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 5px; }
+  ul { list-style: none; padding-left: 0; }
+  li { margin-bottom: 8px; padding: 10px; background: var(--secondary); border-radius: 6px; transition: 0.3s; }
+  li:hover { transform: translateX(5px); background: #eef4ff; }
+  a { text-decoration: none; color: #0056b3; font-weight: 500; }
+  .badge { background: #28a745; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.8em; margin-left: 10px; }
+</style>
+
+## 📌 Quick Navigation
+[📝 Exams](#-exam-papers) | [📓 Lecture Notes](#-review-lecture-notes-slides) | [📅 Activities](./activities.html) | [📧 Contact](#contact-the-mathpi-club)
+
+---
 # Welcome to the MathPi Club 🥧
 
 This is the central repository for math review lectures and past exam papers at The Chinese University of HongKong,Shenzhen.
