@@ -1,3 +1,9 @@
+---
+layout: page
+title: Notes
+---
+
+
 # 📓 Review Lecture Notes
 [Home](./index.html) | [Exams](./exams.html) | **Notes** | [Activities](./activities.html)
 ---

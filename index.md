@@ -1,3 +1,8 @@
+---
+layout: home
+title: Home
+---
+
 # Welcome to the MathPi Club 🥧
 The central resource hub for CUHK-Shenzhen Math Students.
 

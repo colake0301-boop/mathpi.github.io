@@ -1,0 +1,13 @@
+title: MathPi Club - CUHKSZ
+description: Math resource hub for CUHK-Shenzhen students.
+theme: minima
+
+# This helps your math formulas render if you use them later
+markdown: kramdown
+highlighter: rouge
+
+header_pages:
+  - index.md
+  - exams.md
+  - notes.md
+  - activities.md

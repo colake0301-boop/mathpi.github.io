@@ -1,3 +1,9 @@
+---
+layout: page
+title: Exams
+---
+
+
 # 📑 Exam Paper Archive
 [Home](./index.html) | **Exams** | [Notes](./notes.html) | [Activities](./activities.html)
 ---
