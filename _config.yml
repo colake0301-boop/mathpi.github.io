@@ -1,6 +1,6 @@
-title: MathPi Club - CUHKSZ
-description: Math resource hub for CUHK-Shenzhen students.
-theme: minima
+theme: jekyll-theme-architect
+title: MathPi Club
+description: Resource Archive for CUHK-Shenzhen
 
 # This helps your math formulas render if you use them later
 markdown: kramdown

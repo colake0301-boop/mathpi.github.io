@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Home
+title: MathPi Home
 ---
 
 # Welcome to the MathPi Club 🥧
