@@ -23,6 +23,11 @@ title: Exams
   * [Final Exam Paper](./exams/MAT3006/MAT3006_2025_Final.pdf)
 
 
+### MAT3040: Linear Algebra
+* **2024**
+  * [Midterm Exam Paper](./exams/MAT3040/MAT3040_2024_Midterm.pdf)
+  * [Final Exam Paper](./exams/MAT3040/MAT3040_2024_Final.pdf)
+
 ### LongFeng Math Contest
 * **2024**
   * [Paper for Math major](./exams/Contest/2024_math.pdf)

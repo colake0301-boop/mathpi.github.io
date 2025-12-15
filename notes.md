@@ -10,13 +10,23 @@ title: Notes and Slides
 
 
 ### MAT2060: Honor Mathematical Analysis
+* **Additional Exercises**
+  * [Professor Li's Problem set](./notes/MAT2060/Li_problem_set.zip)
+  * [Additional Problem set](./notes/MAT2060/Wang_problem_set.pdf)
+
 * **2025**
   * [Final Review Lectures](./notes/MAT2060/MAT2060_2025_Final_slides.pdf)
   * [A quick introduction to differential forms](./notes/MAT2060/quick_intro_to_differential_forms_presentation.pdf)
 
+
 ### MAT3006: Real Analysis
 * **2025**
   * [Final Review Lectures](./notes/MAT3006/MAT3006_2025_Final_slides.pdf)
+
+
+### MAT3042: Honor Advanced Linear Algebra
+* **Additional Exercises**
+  * [Additional Problem set](./notes/MAT3042/Wang_problem_set_linearalgebra.pdf)
 
 
 ### MAT4033: Differential Geometry
