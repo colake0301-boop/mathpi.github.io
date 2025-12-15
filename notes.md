@@ -30,7 +30,7 @@ title: Notes and Slides
 
 ### MAT4002: Topology and Geometry
 * **Typed Lecture Notes**
-  *[MAT4002 note](./notes/MAT4002/MAT4002_note.pdf)
+  * [MAT4002 note](./notes/MAT4002/MAT4002_note.pdf)
 
 ### MAT4033: Differential Geometry
 * **Typed Lecture Notes** 
