@@ -21,4 +21,9 @@ title: Exams
 * **2025**
   * [Midterm Exam Paper](./exams/MAT3006/MAT3006_2025_Midterm.pdf).
   * [Final Exam Paper](./exams/MAT3006/MAT3006_2025_Final.pdf)
-...
+
+
+### LongFeng Math Contest
+* **2024**
+  * [Paper for Math major](./exams/Contest/2024_math.pdf)
+  * [Paper for Non-Math major](./exams/Contest/2024_nonmath.pdf)
