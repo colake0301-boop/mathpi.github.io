@@ -28,6 +28,9 @@ title: Notes and Slides
 * **Additional Exercises**
   * [Additional Problem set](./notes/MAT3042/Wang_problem_set_linearalgebra.pdf)
 
+### MAT4002: Topology and Geometry
+* **Typed Lecture Notes**
+  *[MAT4002 note](./notes/MAT4002/MAT4002_note.pdf)
 
 ### MAT4033: Differential Geometry
 * **Typed Lecture Notes** 
