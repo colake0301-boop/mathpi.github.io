@@ -21,6 +21,6 @@ title: Notes and Slides
 
 ### MAT4033: Differential Geometry
 * **Typed Lecture Notes** 
-  * [MAT4033 Notes](./notes/MAT4033/MAT4033-note.pdf)
+  * [MAT4033 Notes](./notes/MAT4033/MAT4033_note.pdf)
 * **2026** 
   * [Final Review Lectures](./notes/MAT4033/MAT4033_2026_Final_slides.pdf)
