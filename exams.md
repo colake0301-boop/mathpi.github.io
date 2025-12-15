@@ -3,11 +3,6 @@ layout: page
 title: Exams
 ---
 
-
-# 📑 Exam Paper Archive
-[Home](./index.html) | **Exams** | [Notes](./notes.html) | [Activities](./activities.html)
----
-
 ### MAT1012: Honor Calculus II
 * **2024**
   * [Midterm Exam Paper](./exams/MAT1012/MAT1012_2024_Midterm.pdf)

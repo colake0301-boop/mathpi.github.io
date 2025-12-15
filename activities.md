@@ -1,11 +1,7 @@
 ---
 layout: page
-title: Activities
+title: MathPi Activities
 ---
-
-
-# 🥧 MathPi Activity Log
-*Record of our review lectures and club events.*
 
 | Date | Course | Event Type | Materials |
 | :--- | :--- | :--- | :--- |

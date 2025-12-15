@@ -1,12 +1,8 @@
 ---
 layout: page
-title: Notes
+title: Notes and Slides
 ---
 
-
-# 📓 Review Lecture Notes
-[Home](./index.html) | [Exams](./exams.html) | **Notes** | [Activities](./activities.html)
----
 
 ### MAT1011：Honor Caculus
 * **2025**
