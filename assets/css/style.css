@@ -6,12 +6,12 @@
   --accent: #fdcb6e;  /* Gold */
   --text: #2d3436;
   
-  /* GLASS VARIABLES */
-  /* Slightly more transparent here to let the rich purple show through */
-  --glass-bg: rgba(255, 255, 255, 0.75); 
+  /* GLASS VARIABLES - ADJUSTED FOR TRANSPARENCY */
+  /* Reduced opacity to 0.55 so you can see the background color through it */
+  --glass-bg: rgba(255, 255, 255, 0.55); 
   --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); /* Darker shadow for depth */
-  --glass-blur: blur(20px);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25); /* Stronger shadow for depth */
+  --glass-blur: blur(25px); /* Stronger blur for readability */
 }
 
 body {
@@ -39,7 +39,7 @@ body {
 /* 2. Frosted Glass Header */
 /* ========================================= */
 header {
-  background: rgba(255, 255, 255, 0.9); /* More solid to stand out against dark bg */
+  background: rgba(255, 255, 255, 0.75); /* Slightly clearer than body glass */
   backdrop-filter: blur(20px);         
   -webkit-backdrop-filter: blur(20px); 
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
@@ -77,7 +77,7 @@ nav a {
 }
 
 nav a:hover {
-  background: rgba(108, 92, 231, 0.1); /* Subtle purple tint on hover */
+  background: rgba(255, 255, 255, 0.5);
   color: var(--primary);
 }
 
@@ -90,17 +90,17 @@ main {
 }
 
 h1 { 
-  /* Using white text for main title to contrast with the deep background */
-  color: white; 
+  /* FIXED: Changed to Purple so it pops against the white glass */
+  color: var(--primary); 
   border-bottom: 2px solid rgba(255,255,255,0.3); 
   padding-bottom: 15px; 
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 0 1px 1px rgba(255,255,255,0.8);
 }
 
 h2 { 
   margin-top: 50px; 
-  color: white; /* Subtitles also white for readability */
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  color: white; /* Subtitles outside boxes can be white */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 /* Sticky Glass Search Bar */
@@ -115,8 +115,9 @@ h2 {
 .search-box {
   display: flex;
   gap: 12px;
-  background: rgba(255, 255, 255, 0.85); /* Highly visible white bar */
-  backdrop-filter: blur(15px);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   padding: 10px;
   border-radius: 16px;
   border: 1px solid var(--glass-border);
@@ -127,27 +128,17 @@ h2 {
   flex-grow: 1;
   padding: 12px 20px;
   font-size: 1rem;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(255,255,255,0.4);
   border-radius: 10px;
-  background: white; 
+  background: rgba(255, 255, 255, 0.6); 
   transition: all 0.2s ease;
 }
 
 .search-box input:focus {
   outline: none;
+  background: white;
   box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
   border-color: var(--primary);
-}
-
-.top-btn {
-  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  width: 50px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* ========================================= */
@@ -155,8 +146,9 @@ h2 {
 /* ========================================= */
 
 h3 {
-  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-  color: var(--primary); /* Inverted: White header, Purple text */
+  /* Using glass for headers too */
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--primary); 
   padding: 18px 30px;
   border-radius: 16px 16px 0 0;
   margin-bottom: 0; 
@@ -169,13 +161,15 @@ h3 {
 }
 
 h3 + ul {
-  background: rgba(255, 255, 255, 0.9); /* Very solid white for readability */
-  backdrop-filter: blur(20px);
+  background: var(--glass-bg); /* Using the more transparent variable */
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   padding: 30px;
   border-radius: 0 0 16px 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: var(--glass-shadow);
   margin-top: 0;
   list-style: none;
+  border: 1px solid var(--glass-border);
 }
 
 h3 + ul > li {
@@ -184,7 +178,7 @@ h3 + ul > li {
   font-size: 1.15rem;
   margin-top: 25px;
   margin-bottom: 12px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
   padding-bottom: 8px;
 }
 h3 + ul > li:first-child { margin-top: 0; }
@@ -199,17 +193,16 @@ h3 + ul > li > ul {
 
 /* The File Rows */
 h3 + ul > li > ul > li {
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
+  background: rgba(255, 255, 255, 0.4); /* Very see-through items */
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 h3 + ul > li > ul > li:hover {
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.15);
-  border-color: var(--primary);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 h3 + ul > li > ul > li a {
@@ -217,7 +210,7 @@ h3 + ul > li > ul > li a {
   align-items: center;
   padding: 14px 20px;
   text-decoration: none;
-  color: #444;
+  color: #222;
   font-weight: 600;
 }
 
@@ -249,13 +242,15 @@ h3 + ul > li > ul > li:hover a::after {
   text-align: center;
   padding: 60px 20px;
   
-  /* Bright Glass against Dark Background */
-  background: rgba(255, 255, 255, 0.9); 
-  backdrop-filter: blur(20px);
+  /* FIXED: More Transparent Glass */
+  background: var(--glass-bg); 
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   
   border-radius: 24px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  box-shadow: var(--glass-shadow);
   margin-bottom: 50px;
+  border: 1px solid var(--glass-border);
 }
 
 .school-badge {
@@ -264,6 +259,7 @@ h3 + ul > li > ul > li:hover a::after {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2));
 }
 
 .subtitle {
@@ -274,7 +270,7 @@ h3 + ul > li > ul > li:hover a::after {
 }
 
 .mission {
-  color: #555;
+  color: #333; /* Darker grey for readability on glass */
   max-width: 550px;
   margin: 15px auto;
   font-style: italic;
@@ -289,20 +285,23 @@ h3 + ul > li > ul > li:hover a::after {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.85); 
-  backdrop-filter: blur(16px);
+  /* FIXED: Increased Transparency */
+  background: var(--glass-bg); 
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  
   padding: 35px 25px;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: var(--glass-shadow);
   text-decoration: none;
   color: #2d3436;
   transition: all 0.3s ease;
-  border: none;
+  border: 1px solid var(--glass-border);
   text-align: center;
 }
 
 .card:hover {
-  background: white; 
+  background: rgba(255, 255, 255, 0.85); /* Solidifies on hover */
   transform: translateY(-8px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
 }
@@ -331,20 +330,21 @@ h3 + ul > li > ul > li:hover a::after {
 
 .card p {
   font-size: 0.95rem;
-  color: #555;
+  color: #444;
   margin-top: 10px;
 }
 
 .updates-section {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(16px);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
 }
 
 .updates-section h2 {
-    color: #2d3436; /* Override white text for inside the white box */
+    color: #2d3436; 
     text-shadow: none;
 }
 
@@ -352,7 +352,7 @@ h3 + ul > li > ul > li:hover a::after {
 /* 6. Footer & Tables */
 /* ========================================= */
 footer {
-  background: rgba(0, 0, 0, 0.3); /* Transparent dark layer */
+  background: rgba(0, 0, 0, 0.4); /* Transparent dark layer */
   backdrop-filter: blur(10px);
   color: white;
   text-align: center;
@@ -365,11 +365,12 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 30px 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
+  background-color: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
 }
 
 thead {
@@ -391,7 +392,7 @@ th {
 }
 
 tr:hover {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 600px) {
