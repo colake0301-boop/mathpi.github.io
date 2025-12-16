@@ -67,14 +67,57 @@ main {
 h1 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 10px; }
 h2 { margin-top: 40px; }
 
-/* Course Headers (Your ### items) */
+/* --- NEW COURSE CARD STYLES (Replaces the old h3) --- */
+
+/* The Card Header (Course Name) */
 h3 {
-  background: #f1f2f6;
-  padding: 10px 15px;
-  border-left: 5px solid var(--primary);
-  border-radius: 4px;
-  margin-top: 30px;
-  color: #2d3436;
+  background: linear-gradient(135deg, var(--primary) 0%, #a29bfe 100%);
+  color: white;
+  padding: 18px 25px;
+  border-radius: 12px 12px 0 0; /* Top corners rounded */
+  margin-bottom: 0; /* Connects to the list below */
+  margin-top: 50px;
+  box-shadow: 0 4px 10px rgba(108, 92, 231, 0.2);
+  font-size: 1.25rem;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+/* The Card Body (The List of Papers) */
+h3 + ul {
+  background: white;
+  padding: 30px;
+  border-radius: 0 0 12px 12px; /* Bottom corners rounded */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  margin-top: 0;
+  border: 1px solid #f0f0f0;
+  border-top: none;
+  list-style-position: inside;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover Effect */
+h3 + ul:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(108, 92, 231, 0.1);
+}
+
+/* Styling the "Year" bullets */
+h3 + ul > li {
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #f9f9f9;
+  padding-bottom: 10px;
+}
+
+/* Styling the "Paper Links" inside the list */
+h3 + ul > li ul li {
+  font-weight: normal;
+  color: #555;
+  margin-top: 8px;
+  font-size: 1rem;
 }
 
 ul { margin-bottom: 20px; }
@@ -120,7 +163,7 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
 }
 
 .school-badge {
-  max-width: 120px; /* Adjust size of your logo */
+  max-width: 120px;
   margin-bottom: 20px;
   display: block;
   margin-left: auto;
@@ -155,7 +198,7 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  text-decoration: none; /* Removes underline from links */
+  text-decoration: none;
   color: #2d3436;
   transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid #f1f1f1;
@@ -163,7 +206,7 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
 }
 
 .card:hover {
-  transform: translateY(-5px); /* Moves up slightly */
+  transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(108, 92, 231, 0.15); /* Purple glow */
   border-color: #6c5ce7;
 }
@@ -176,9 +219,13 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
 .card h3 {
   margin: 0;
   color: #2d3436;
-  border: none; /* Remove the left border we used for course headers */
+  border: none;
   padding: 0;
   background: none;
+  /* Reset header styles inside cards so they don't look like course headers */
+  box-shadow: none;
+  border-radius: 0;
+  margin-top: 0;
 }
 
 .card p {
@@ -208,12 +255,12 @@ table {
   margin: 30px 0;
   background-color: white;
   border-radius: 8px;
-  overflow: hidden; /* Rounds the corners */
+  overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 thead {
-  background-color: var(--primary); /* CUHK Purple */
+  background-color: var(--primary);
   color: white;
 }
 
@@ -231,10 +278,9 @@ th {
 }
 
 tr:hover {
-  background-color: #f8f9fa; /* Slight grey on hover */
+  background-color: #f8f9fa;
 }
 
-/* Mobile responsive table */
 @media (max-width: 600px) {
   table {
     display: block;
