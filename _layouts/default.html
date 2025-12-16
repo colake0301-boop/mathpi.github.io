@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | MathPi Club</title>
+  
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <a href="./index.html">MathPi 🥧</a>
+      </div>
+      <nav>
+        <a href="./exams.html">📑 Exams</a>
+        <a href="./notes.html">📓 Notes</a>
+        <a href="./activities.html">📅 Activities</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    {% if page.url contains 'exams' or page.url contains 'notes' %}
+    <div class="search-box">
+      <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search for course codes (e.g., MAT2060)...">
+    </div>
+    {% endif %}
+
+    {{ content }}
+    
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 MathPi Club | CUHK-Shenzhen</p>
+      <p>Maintained by students, for students.</p>
+    </div>
+  </footer>
+
+  <script>
+    function filterCourses() {
+      var input = document.getElementById('searchInput');
+      if (!input) return;
+      var filter = input.value.toUpperCase();
+      var headers = document.querySelectorAll('h3'); // Targets your course titles
+      
+      headers.forEach(h3 => {
+        var ul = h3.nextElementSibling;
+        var text = h3.textContent || h3.innerText;
+        if (text.toUpperCase().indexOf(filter) > -1) {
+          h3.style.display = "";
+          if (ul && ul.tagName === 'UL') ul.style.display = "";
+        } else {
+          h3.style.display = "none";
+          if (ul && ul.tagName === 'UL') ul.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -3,54 +3,6 @@ layout: default
 title: Exams
 ---
 
-[← Back to Home](./index.html)
-
-<div class="search-box">
-  <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search by course code (e.g., MAT2060)...">
-</div>
-
-<script>
-function filterCourses() {
-  // 1. Get the input
-  var input = document.getElementById('searchInput');
-  var filter = input.value.toUpperCase();
-  
-  // 2. Get all headers (h3) and lists (ul)
-  var mainContent = document.querySelector('.main-content') || document.body;
-  var headers = mainContent.getElementsByTagName('h3');
-  
-  // 3. Loop through headers
-  for (var i = 0; i < headers.length; i++) {
-    var h3 = headers[i];
-    var ul = h3.nextElementSibling; // The list immediately following the header
-    var textValue = h3.textContent || h3.innerText;
-
-    // 4. Check if text matches
-    if (textValue.toUpperCase().indexOf(filter) > -1) {
-      h3.style.display = "";
-      if (ul && ul.tagName === 'UL') ul.style.display = "";
-    } else {
-      h3.style.display = "none";
-      // Hide the list following the header as well
-      if (ul && ul.tagName === 'UL') ul.style.display = "none";
-    }
-  }
-}
-</script>
-
-<style>
-.search-box input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  border: 2px solid #6c5ce7; /* Light Purple border */
-  border-radius: 8px;
-  background-color: #f8f9fa;
-}
-</style>
-
-
 ### MAT1012: Honor Calculus II
 * **2024**
   * [Midterm Exam Paper](./exams/MAT1012/MAT1012_2024_Midterm.pdf)
