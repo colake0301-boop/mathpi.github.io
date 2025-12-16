@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | MathPi Club</title>
+  <title>{{ page.title }} | MathPi</title>
   
-  <link rel="stylesheet" href="./assets/css/style.css">
-  
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -14,52 +13,62 @@
   <header>
     <div class="container header-container">
       <div class="logo">
-        <a href="./index.html">MathPi 🥧</a>
+        <a href="{{ '/' | relative_url }}">MathPi 🥧</a>
       </div>
       <nav>
-  <a href="./index.html">🏠 Home</a>
-  <a href="./exams.html">📑 Exams</a>
-  <a href="./notes.html">📓 Notes</a>
-  <a href="./activities.html">📅 Activities</a>
-    </nav>
+        <a href="{{ '/' | relative_url }}">🏠 Home</a>
+        <a href="{{ '/exams.html' | relative_url }}">📑 Exams</a>
+        <a href="{{ '/notes.html' | relative_url }}">📓 Notes</a>
+        <a href="{{ '/activities.html' | relative_url }}">📅 Activities</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-    
-    {% if page.url contains 'exams' or page.url contains 'notes' %}
-    <div class="search-box">
-      <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search for course codes (e.g., MAT2060)...">
-    </div>
-    {% endif %}
+  <main>
+    <div class="container">
+      
+      {% if page.url contains 'exams' or page.url contains 'notes' %}
+      <div class="search-sticky-wrapper">
+        <div class="search-box">
+          <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search course code (e.g. MAT2060)...">
+          
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="top-btn" title="Back to Top">⬆</button>
+        </div>
+      </div>
+      {% endif %}
 
-    {{ content }}
-    
+      {{ content }}
+      
+    </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>© 2025 MathPi Club | CUHK-Shenzhen</p>
-      <p>Maintained by students, for students.</p>
+      <p>© 2025 MathPi - CUHK-Shenzhen Student Archive</p>
+      <p>Built for students, by students.</p>
     </div>
   </footer>
 
   <script>
     function filterCourses() {
-      var input = document.getElementById('searchInput');
-      if (!input) return;
+      // 1. Get the search term
+      var input = document.getElementById("searchInput");
       var filter = input.value.toUpperCase();
-      var headers = document.querySelectorAll('h3'); // Targets your course titles
       
+      // 2. Select all Course Headers (h3 tags)
+      var headers = document.querySelectorAll("h3");
+      
+      // 3. Loop through them to hide/show based on search
       headers.forEach(h3 => {
-        var ul = h3.nextElementSibling;
-        var text = h3.textContent || h3.innerText;
+        var ul = h3.nextElementSibling; // The list of files below the header
+        var text = h3.innerText || h3.textContent;
+        
         if (text.toUpperCase().indexOf(filter) > -1) {
-          h3.style.display = "";
-          if (ul && ul.tagName === 'UL') ul.style.display = "";
+          h3.style.display = "";       // Show Header
+          if(ul) ul.style.display = ""; // Show List
         } else {
-          h3.style.display = "none";
-          if (ul && ul.tagName === 'UL') ul.style.display = "none";
+          h3.style.display = "none";    // Hide Header
+          if(ul) ul.style.display = "none"; // Hide List
         }
       });
     }
