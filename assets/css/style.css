@@ -58,7 +58,7 @@ nav a:hover {
   color: var(--primary);
 }
 
-/* 3. Main Content & Math Styling */
+/* 3. Main Content Styling */
 main {
   padding: 40px 0;
   min-height: 80vh;
@@ -67,15 +67,14 @@ main {
 h1 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 10px; }
 h2 { margin-top: 40px; }
 
-/* --- NEW COURSE CARD STYLES (Replaces the old h3) --- */
-
-/* The Card Header (Course Name) */
+/* --- NEW COURSE CARD STYLES --- */
+/* 1. The Purple Header Tab */
 h3 {
   background: linear-gradient(135deg, var(--primary) 0%, #a29bfe 100%);
   color: white;
   padding: 18px 25px;
-  border-radius: 12px 12px 0 0; /* Top corners rounded */
-  margin-bottom: 0; /* Connects to the list below */
+  border-radius: 12px 12px 0 0; 
+  margin-bottom: 0; 
   margin-top: 50px;
   box-shadow: 0 4px 10px rgba(108, 92, 231, 0.2);
   font-size: 1.25rem;
@@ -83,11 +82,11 @@ h3 {
   border: none;
 }
 
-/* The Card Body (The List of Papers) */
+/* 2. The White List Box */
 h3 + ul {
   background: white;
   padding: 30px;
-  border-radius: 0 0 12px 12px; /* Bottom corners rounded */
+  border-radius: 0 0 12px 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   margin-top: 0;
   border: 1px solid #f0f0f0;
@@ -96,13 +95,12 @@ h3 + ul {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover Effect */
 h3 + ul:hover {
   transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(108, 92, 231, 0.1);
 }
 
-/* Styling the "Year" bullets */
+/* 3. List Item Styling */
 h3 + ul > li {
   font-weight: bold;
   color: var(--primary);
@@ -112,7 +110,6 @@ h3 + ul > li {
   padding-bottom: 10px;
 }
 
-/* Styling the "Paper Links" inside the list */
 h3 + ul > li ul li {
   font-weight: normal;
   color: #555;
@@ -151,9 +148,7 @@ footer {
 }
 footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
 
-/* --- HOMEPAGE SPECIFIC STYLES --- */
-
-/* Hero Section */
+/* --- HOMEPAGE STYLES --- */
 .hero-section {
   text-align: center;
   padding: 40px 20px;
@@ -172,7 +167,7 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
 
 .subtitle {
   font-size: 1.2rem;
-  color: #6c5ce7; /* CUHK Purple */
+  color: #6c5ce7; 
   font-weight: 600;
   margin-top: -10px;
 }
@@ -184,7 +179,6 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
   font-style: italic;
 }
 
-/* Card Grid Layout */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -192,7 +186,6 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
   margin-bottom: 50px;
 }
 
-/* Individual Cards */
 .card {
   background: white;
   padding: 30px;
@@ -207,7 +200,7 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.15); /* Purple glow */
+  box-shadow: 0 8px 25px rgba(108, 92, 231, 0.15); 
   border-color: #6c5ce7;
 }
 
@@ -222,7 +215,6 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
   border: none;
   padding: 0;
   background: none;
-  /* Reset header styles inside cards so they don't look like course headers */
   box-shadow: none;
   border-radius: 0;
   margin-top: 0;
@@ -234,12 +226,11 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
   margin-top: 10px;
 }
 
-/* Updates Section */
 .updates-section {
   background: #f8f9fa;
   padding: 30px;
   border-radius: 8px;
-  border-left: 4px solid #fdcb6e; /* Gold accent */
+  border-left: 4px solid #fdcb6e; 
 }
 
 .contact-box {
@@ -248,7 +239,7 @@ footer p { margin: 5px 0; font-size: 0.9rem; opacity: 0.8; }
   text-align: center;
 }
 
-/* --- TABLE STYLES (For Activities Page) --- */
+/* --- TABLE STYLES --- */
 table {
   width: 100%;
   border-collapse: collapse;
