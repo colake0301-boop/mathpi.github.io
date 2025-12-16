@@ -1,4 +1,6 @@
+/* ========================================= */
 /* 1. Global Reset & Fonts */
+/* ========================================= */
 :root {
   --primary: #6c5ce7; /* CUHK Purple */
   --accent: #fdcb6e;  /* Gold */
@@ -18,12 +20,11 @@ body {
   color: var(--text);
   line-height: 1.6;
   
-  /* THE AURORA BACKGROUND */
-  /* This creates the colorful backdrop for the glass to sit on */
-  background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); 
-  /* Alternative warmer option: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); */
+  /* --- OPTION 1: ANIMATED LIQUID BACKGROUND --- */
+  background: linear-gradient(-45deg, #a29bfe, #74b9ff, #81ecec, #fab1a0);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   
-  background-attachment: fixed; /* Keeps colors still while scrolling */
   min-height: 100vh;
 }
 
@@ -33,7 +34,9 @@ body {
   padding: 0 20px;
 }
 
+/* ========================================= */
 /* 2. Frosted Glass Header */
+/* ========================================= */
 header {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);         
@@ -78,7 +81,9 @@ nav a:hover {
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-/* 3. Main Content Styling */
+/* ========================================= */
+/* 3. Main Content & Search */
+/* ========================================= */
 main {
   padding: 40px 0;
   min-height: 80vh;
@@ -92,7 +97,7 @@ h1 {
 }
 h2 { margin-top: 50px; }
 
-/* --- GLASSY STICKY SEARCH BAR --- */
+/* Sticky Glass Search Bar */
 .search-sticky-wrapper {
   position: sticky;
   top: 70px; 
@@ -140,7 +145,7 @@ h2 { margin-top: 50px; }
 }
 
 /* ========================================= */
-/* --- LIQUID GLASS COURSE LISTS --- */
+/* 4. LIQUID GLASS COURSE LISTS */
 /* ========================================= */
 
 h3 {
@@ -235,10 +240,9 @@ h3 + ul > li > ul > li:hover a::after {
 }
 
 /* ========================================= */
-/* --- HOMEPAGE SPECIFIC STYLES (GLASS) --- */
+/* 5. HOMEPAGE SPECIFIC STYLES (GLASS) */
 /* ========================================= */
 
-/* 1. The Welcome Hero Section */
 .hero-section {
   text-align: center;
   padding: 60px 20px;
@@ -248,7 +252,7 @@ h3 + ul > li > ul > li:hover a::after {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   
-  border-radius: 24px; /* Rounder corners */
+  border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   margin-bottom: 50px;
@@ -279,7 +283,6 @@ h3 + ul > li > ul > li:hover a::after {
   font-size: 1.1rem;
 }
 
-/* 2. The 3 Cards (Exams, Notes, Activities) */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -304,7 +307,6 @@ h3 + ul > li > ul > li:hover a::after {
 }
 
 .card:hover {
-  /* On hover, becomes clearer/whiter and floats up */
   background: rgba(255, 255, 255, 0.85); 
   transform: translateY(-8px);
   box-shadow: 0 15px 40px rgba(108, 92, 231, 0.2); 
@@ -324,7 +326,6 @@ h3 + ul > li > ul > li:hover a::after {
 }
 
 .card h3 {
-  /* Resetting header styles just for cards */
   margin: 0;
   color: #2d3436;
   border: none;
@@ -343,7 +344,6 @@ h3 + ul > li > ul > li:hover a::after {
   margin-top: 10px;
 }
 
-/* 3. Updates Section (Yellow/Gold Glass) */
 .updates-section {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(16px);
@@ -351,12 +351,11 @@ h3 + ul > li > ul > li:hover a::after {
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: var(--glass-shadow);
-  position: relative;
 }
 
 /* ========================================= */
-
-/* Footer */
+/* 6. Footer & Tables */
+/* ========================================= */
 footer {
   background: rgba(45, 52, 54, 0.85); /* Dark Glass */
   backdrop-filter: blur(10px);
@@ -369,7 +368,6 @@ footer {
 }
 footer p { margin: 8px 0; font-size: 0.9rem; opacity: 0.8; }
 
-/* Table Styles for Activities */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -409,4 +407,13 @@ tr:hover {
   .header-container { flex-direction: column; height: auto; padding: 10px; }
   nav { margin-top: 10px; }
   .search-sticky-wrapper { top: 90px; }
+}
+
+/* ========================================= */
+/* 7. ANIMATION KEYFRAMES (Required) */
+/* ========================================= */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
