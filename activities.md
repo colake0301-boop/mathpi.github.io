@@ -3,7 +3,6 @@ layout: default
 title: MathPi Activities
 ---
 
-[← Back to Home](./index.html)
 
 | Date | Course | Event Type | Materials |
 | :--- | :--- | :--- | :--- |
