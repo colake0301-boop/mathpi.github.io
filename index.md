@@ -3,7 +3,7 @@ layout: default
 title: MathPi Home
 ---
 
-# Welcome to the MathPi Club 🥧
+# Welcome to the MathPi 🥧
 The central resource hub for CUHK-Shenzhen Math Students.
 
 ---
