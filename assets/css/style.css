@@ -6,9 +6,9 @@
   --accent: #fdcb6e;  /* Gold */
   --text: #2d3436;
   
-  /* GLASS VARIABLES - BALANCED */
-  /* Increased opacity to 0.8 so it is easier to read (less see-through) */
-  --glass-bg: rgba(255, 255, 255, 0.80); 
+  /* GLASS VARIABLES - ADJUSTED */
+  /* User Request: 0.65 Opacity for "Icy" look */
+  --glass-bg: rgba(255, 255, 255, 0.65); 
   --glass-border: rgba(255, 255, 255, 0.5);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   --glass-blur: blur(20px); 
@@ -37,7 +37,7 @@ body {
 /* 2. Frosted Glass Header */
 /* ========================================= */
 header {
-  background: rgba(255, 255, 255, 0.9); /* Almost solid for navbar */
+  background: rgba(255, 255, 255, 0.85); /* Navbar stays slightly more solid */
   backdrop-filter: blur(20px);         
   -webkit-backdrop-filter: blur(20px); 
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
@@ -88,11 +88,12 @@ main {
 }
 
 h1 { 
-  /* Purple Title to stand out on the Glass Hero */
-  color: var(--primary); 
-  border-bottom: 2px solid rgba(255,255,255,0.3); 
+  /* USER REQUEST: Black Title */
+  color: black; 
+  border-bottom: 2px solid rgba(255,255,255,0.4); 
   padding-bottom: 15px; 
-  text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+  /* Removed heavy shadow since text is black */
+  text-shadow: none;
 }
 
 h2 { 
@@ -113,7 +114,7 @@ h2 {
 .search-box {
   display: flex;
   gap: 12px;
-  background: var(--glass-bg); /* Matches the cards now */
+  background: var(--glass-bg); 
   backdrop-filter: var(--glass-blur);
   padding: 10px;
   border-radius: 16px;
@@ -127,7 +128,7 @@ h2 {
   font-size: 1rem;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.7); 
+  background: rgba(255, 255, 255, 0.6); 
   transition: all 0.2s ease;
 }
 
@@ -142,36 +143,31 @@ h2 {
 /* 4. UNIFIED GLASS COURSE LISTS */
 /* ========================================= */
 
-/* We made the Title (h3) and Content (ul) use nearly the same background 
-   so they blend together smoothly.
-*/
-
 h3 {
-  background: rgba(255, 255, 255, 0.85); /* Top of the card */
+  background: rgba(255, 255, 255, 0.75); /* Slightly solid top */
   color: var(--primary); 
   padding: 18px 30px;
-  border-radius: 16px 16px 0 0; /* Top corners rounded */
+  border-radius: 16px 16px 0 0;
   margin-bottom: 0; 
   margin-top: 50px;
-  box-shadow: none; /* Removed shadow between title and list */
   font-size: 1.3rem;
   font-weight: 800;
   border: 1px solid var(--glass-border);
-  border-bottom: 1px solid rgba(108, 92, 231, 0.15); /* Very subtle separator */
+  border-bottom: 1px solid rgba(108, 92, 231, 0.15);
   scroll-margin-top: 180px;
 }
 
 h3 + ul {
-  background: rgba(255, 255, 255, 0.80); /* Bottom of the card (Slightly less opaque) */
+  background: var(--glass-bg); /* Uses the 0.65 opacity */
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   padding: 30px;
-  border-radius: 0 0 16px 16px; /* Bottom corners rounded */
+  border-radius: 0 0 16px 16px;
   box-shadow: var(--glass-shadow);
   margin-top: 0;
   list-style: none;
   border: 1px solid var(--glass-border);
-  border-top: none; /* Seamless connection to h3 */
+  border-top: none; 
 }
 
 h3 + ul > li {
@@ -180,7 +176,7 @@ h3 + ul > li {
   font-size: 1.15rem;
   margin-top: 25px;
   margin-bottom: 12px;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
   padding-bottom: 8px;
 }
 h3 + ul > li:first-child { margin-top: 0; }
@@ -195,8 +191,8 @@ h3 + ul > li > ul {
 
 /* The File Rows */
 h3 + ul > li > ul > li {
-  background: rgba(255, 255, 255, 0.6); /* Inner items slightly darker */
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5); /* Inner items */
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
@@ -245,7 +241,7 @@ h3 + ul > li > ul > li:hover a::after {
   text-align: center;
   padding: 60px 20px;
   
-  background: var(--glass-bg); 
+  background: var(--glass-bg); /* 0.65 Opacity */
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   
@@ -253,6 +249,12 @@ h3 + ul > li > ul > li:hover a::after {
   box-shadow: var(--glass-shadow);
   margin-bottom: 50px;
   border: 1px solid var(--glass-border);
+}
+
+/* Force black text for the Title inside Hero */
+.hero-section h1 {
+    color: black;
+    text-shadow: none;
 }
 
 .school-badge {
@@ -266,13 +268,14 @@ h3 + ul > li > ul > li:hover a::after {
 
 .subtitle {
   font-size: 1.25rem;
-  color: var(--primary); 
+  /* USER REQUEST: Black Text */
+  color: black; 
   font-weight: 800;
   margin-top: -10px;
 }
 
 .mission {
-  color: #444; 
+  color: #333; 
   max-width: 550px;
   margin: 15px auto;
   font-style: italic;
