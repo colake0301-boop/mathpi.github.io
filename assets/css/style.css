@@ -6,12 +6,12 @@
   --accent: #fdcb6e;  /* Gold */
   --text: #2d3436;
   
-  /* GLASS VARIABLES - ADJUSTED FOR TRANSPARENCY */
-  /* Reduced opacity to 0.55 so you can see the background color through it */
-  --glass-bg: rgba(255, 255, 255, 0.55); 
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25); /* Stronger shadow for depth */
-  --glass-blur: blur(25px); /* Stronger blur for readability */
+  /* GLASS VARIABLES - BALANCED */
+  /* Increased opacity to 0.8 so it is easier to read (less see-through) */
+  --glass-bg: rgba(255, 255, 255, 0.80); 
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  --glass-blur: blur(20px); 
 }
 
 body {
@@ -21,10 +21,8 @@ body {
   color: var(--text);
   line-height: 1.6;
   
-  /* --- OPTION 3: DEEP MATH / ROYAL GRADIENT --- */
-  /* A rich blend from Royal Blue to Deep Purple */
+  /* --- BACKGROUND: DEEP MATH GRADIENT --- */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  
   background-attachment: fixed; 
   min-height: 100vh;
 }
@@ -39,10 +37,10 @@ body {
 /* 2. Frosted Glass Header */
 /* ========================================= */
 header {
-  background: rgba(255, 255, 255, 0.75); /* Slightly clearer than body glass */
+  background: rgba(255, 255, 255, 0.9); /* Almost solid for navbar */
   backdrop-filter: blur(20px);         
   -webkit-backdrop-filter: blur(20px); 
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -77,7 +75,7 @@ nav a {
 }
 
 nav a:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(108, 92, 231, 0.1);
   color: var(--primary);
 }
 
@@ -90,7 +88,7 @@ main {
 }
 
 h1 { 
-  /* FIXED: Changed to Purple so it pops against the white glass */
+  /* Purple Title to stand out on the Glass Hero */
   color: var(--primary); 
   border-bottom: 2px solid rgba(255,255,255,0.3); 
   padding-bottom: 15px; 
@@ -99,8 +97,8 @@ h1 {
 
 h2 { 
   margin-top: 50px; 
-  color: white; /* Subtitles outside boxes can be white */
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  color: white; 
+  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
 /* Sticky Glass Search Bar */
@@ -115,9 +113,8 @@ h2 {
 .search-box {
   display: flex;
   gap: 12px;
-  background: var(--glass-bg);
+  background: var(--glass-bg); /* Matches the cards now */
   backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
   padding: 10px;
   border-radius: 16px;
   border: 1px solid var(--glass-border);
@@ -128,9 +125,9 @@ h2 {
   flex-grow: 1;
   padding: 12px 20px;
   font-size: 1rem;
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.6); 
+  background: rgba(255, 255, 255, 0.7); 
   transition: all 0.2s ease;
 }
 
@@ -142,34 +139,39 @@ h2 {
 }
 
 /* ========================================= */
-/* 4. LIQUID GLASS COURSE LISTS */
+/* 4. UNIFIED GLASS COURSE LISTS */
 /* ========================================= */
 
+/* We made the Title (h3) and Content (ul) use nearly the same background 
+   so they blend together smoothly.
+*/
+
 h3 {
-  /* Using glass for headers too */
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.85); /* Top of the card */
   color: var(--primary); 
   padding: 18px 30px;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px 16px 0 0; /* Top corners rounded */
   margin-bottom: 0; 
   margin-top: 50px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: none; /* Removed shadow between title and list */
   font-size: 1.3rem;
   font-weight: 800;
-  border: none;
+  border: 1px solid var(--glass-border);
+  border-bottom: 1px solid rgba(108, 92, 231, 0.15); /* Very subtle separator */
   scroll-margin-top: 180px;
 }
 
 h3 + ul {
-  background: var(--glass-bg); /* Using the more transparent variable */
+  background: rgba(255, 255, 255, 0.80); /* Bottom of the card (Slightly less opaque) */
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   padding: 30px;
-  border-radius: 0 0 16px 16px;
+  border-radius: 0 0 16px 16px; /* Bottom corners rounded */
   box-shadow: var(--glass-shadow);
   margin-top: 0;
   list-style: none;
   border: 1px solid var(--glass-border);
+  border-top: none; /* Seamless connection to h3 */
 }
 
 h3 + ul > li {
@@ -178,7 +180,7 @@ h3 + ul > li {
   font-size: 1.15rem;
   margin-top: 25px;
   margin-bottom: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.4);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
   padding-bottom: 8px;
 }
 h3 + ul > li:first-child { margin-top: 0; }
@@ -193,16 +195,17 @@ h3 + ul > li > ul {
 
 /* The File Rows */
 h3 + ul > li > ul > li {
-  background: rgba(255, 255, 255, 0.4); /* Very see-through items */
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.6); /* Inner items slightly darker */
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 h3 + ul > li > ul > li:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: #fff;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
 }
 
 h3 + ul > li > ul > li a {
@@ -210,7 +213,7 @@ h3 + ul > li > ul > li a {
   align-items: center;
   padding: 14px 20px;
   text-decoration: none;
-  color: #222;
+  color: #333;
   font-weight: 600;
 }
 
@@ -242,7 +245,6 @@ h3 + ul > li > ul > li:hover a::after {
   text-align: center;
   padding: 60px 20px;
   
-  /* FIXED: More Transparent Glass */
   background: var(--glass-bg); 
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
@@ -259,7 +261,7 @@ h3 + ul > li > ul > li:hover a::after {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
 }
 
 .subtitle {
@@ -270,7 +272,7 @@ h3 + ul > li > ul > li:hover a::after {
 }
 
 .mission {
-  color: #333; /* Darker grey for readability on glass */
+  color: #444; 
   max-width: 550px;
   margin: 15px auto;
   font-style: italic;
@@ -285,10 +287,8 @@ h3 + ul > li > ul > li:hover a::after {
 }
 
 .card {
-  /* FIXED: Increased Transparency */
   background: var(--glass-bg); 
   backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
   
   padding: 35px 25px;
   border-radius: 20px;
@@ -301,7 +301,7 @@ h3 + ul > li > ul > li:hover a::after {
 }
 
 .card:hover {
-  background: rgba(255, 255, 255, 0.85); /* Solidifies on hover */
+  background: rgba(255, 255, 255, 0.95); 
   transform: translateY(-8px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
 }
@@ -330,7 +330,7 @@ h3 + ul > li > ul > li:hover a::after {
 
 .card p {
   font-size: 0.95rem;
-  color: #444;
+  color: #555;
   margin-top: 10px;
 }
 
@@ -352,7 +352,7 @@ h3 + ul > li > ul > li:hover a::after {
 /* 6. Footer & Tables */
 /* ========================================= */
 footer {
-  background: rgba(0, 0, 0, 0.4); /* Transparent dark layer */
+  background: rgba(0, 0, 0, 0.4); 
   backdrop-filter: blur(10px);
   color: white;
   text-align: center;
