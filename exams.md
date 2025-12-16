@@ -7,7 +7,7 @@ title: Exams
 * **2024**
   * [Midterm Exam Paper](./exams/MAT1012/MAT1012_2024_Midterm.pdf)
 * **2022**
-  * [Midterm Exam Paper](./exams/MAT1012/MAT1012_2022_Midterm.pdf).
+  * [Midterm Exam Paper](./exams/MAT1012/MAT1012_2022_Midterm.pdf)
 
 
 ### MAT2060: Honor Mathematical Analysis
@@ -19,7 +19,7 @@ title: Exams
 
 ### MAT3006: Real Analysis
 * **2025**
-  * [Midterm Exam Paper](./exams/MAT3006/MAT3006_2025_Midterm.pdf).
+  * [Midterm Exam Paper](./exams/MAT3006/MAT3006_2025_Midterm.pdf)
   * [Final Exam Paper](./exams/MAT3006/MAT3006_2025_Final.pdf)
 
 
