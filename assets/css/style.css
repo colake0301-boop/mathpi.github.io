@@ -3,17 +3,28 @@
   --primary: #6c5ce7; /* CUHK Purple */
   --accent: #fdcb6e;  /* Gold */
   --text: #2d3436;
-  --bg: #fdfdfd;      /* Off-white background */
-  --header-bg: #ffffff;
+  
+  /* GLASS VARIABLES */
+  --glass-bg: rgba(255, 255, 255, 0.60); /* 60% Opacity White */
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  --glass-blur: blur(16px);
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  
+  /* THE AURORA BACKGROUND */
+  /* This creates the colorful backdrop for the glass to sit on */
+  background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); 
+  /* Alternative warmer option: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); */
+  
+  background-attachment: fixed; /* Keeps colors still while scrolling */
+  min-height: 100vh;
 }
 
 .container {
@@ -22,14 +33,16 @@ body {
   padding: 0 20px;
 }
 
-/* 2. Header & Navigation (Sticky Top) */
+/* 2. Frosted Glass Header */
 header {
-  background: var(--header-bg);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.04); /* Softer shadow */
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);         
+  -webkit-backdrop-filter: blur(20px); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-top: 4px solid var(--primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   height: 70px;
 }
 
@@ -49,16 +62,20 @@ header {
 }
 
 nav a {
-  margin-left: 25px;
+  margin-left: 20px;
   text-decoration: none;
-  color: #636e72;
+  color: #555;
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 20px; /* Pill shape hover */
 }
 
 nav a:hover {
+  background: rgba(255, 255, 255, 0.6);
   color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 /* 3. Main Content Styling */
@@ -67,204 +84,173 @@ main {
   min-height: 80vh;
 }
 
-h1 { color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 15px; }
+h1 { 
+  color: var(--primary); 
+  border-bottom: 2px solid rgba(255,255,255,0.5); 
+  padding-bottom: 15px; 
+  text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+}
 h2 { margin-top: 50px; }
 
-/* --- STICKY SEARCH BAR & BACK-TO-TOP --- */
+/* --- GLASSY STICKY SEARCH BAR --- */
 .search-sticky-wrapper {
   position: sticky;
   top: 70px; 
   z-index: 90;
-  background-color: var(--bg); /* Matches body bg */
   padding: 20px 0;
   margin-bottom: 40px;
-  border-bottom: 1px solid rgba(0,0,0,0.03);
 }
 
 .search-box {
   display: flex;
   gap: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px);
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
 .search-box input {
   flex-grow: 1;
-  padding: 16px 20px;
+  padding: 12px 20px;
   font-size: 1rem;
-  border: 2px solid #e1e4e8;
-  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.3); /* See-through input */
   transition: all 0.2s ease;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
 .search-box input:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
 }
 
 .top-btn {
-  background-color: var(--primary);
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
   color: white;
   border: none;
-  border-radius: 12px;
-  width: 58px;
+  border-radius: 10px;
+  width: 50px;
   font-size: 1.4rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
-}
-
-.top-btn:hover {
-  background-color: var(--accent);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(253, 203, 110, 0.4);
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
 }
 
 /* ========================================= */
-/* --- NEW HIGH-QUALITY COURSE LISTS --- */
+/* --- LIQUID GLASS COURSE LISTS --- */
 /* ========================================= */
 
-/* 1. The Course Header (Purple Tab) */
 h3 {
-  background: linear-gradient(135deg, var(--primary) 0%, #a29bfe 100%);
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.85), rgba(162, 155, 254, 0.85));
+  backdrop-filter: blur(5px);
   color: white;
   padding: 18px 30px;
-  border-radius: 16px 16px 0 0; /* Smoother corners */
+  border-radius: 16px 16px 0 0;
   margin-bottom: 0; 
   margin-top: 50px;
-  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.25);
+  box-shadow: 0 4px 20px rgba(108, 92, 231, 0.2);
   font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: 0.3px;
-  border: none;
-  scroll-margin-top: 160px;
-  position: relative;
-  z-index: 2;
+  border: 1px solid rgba(255,255,255,0.3);
+  scroll-margin-top: 180px;
 }
 
-/* 2. The Main Container (White Card) */
 h3 + ul {
-  background: white;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   padding: 30px;
   border-radius: 0 0 16px 16px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.06); /* Deep, premium shadow */
+  box-shadow: var(--glass-shadow);
   margin-top: 0;
-  border: 1px solid rgba(0,0,0,0.02);
-  list-style: none; /* Remove default bullets */
+  border: 1px solid var(--glass-border);
+  border-top: none;
+  list-style: none;
 }
 
-/* 3. The Year Labels (e.g., 2024, 2025) */
 h3 + ul > li {
   color: var(--primary);
   font-weight: 800;
   font-size: 1.15rem;
   margin-top: 25px;
   margin-bottom: 12px;
-  border-bottom: 2px solid #f0f0f5; /* Subtle divider line */
+  border-bottom: 2px solid rgba(255,255,255,0.5);
   padding-bottom: 8px;
-  display: block;
 }
-
-/* First item shouldn't have top margin */
 h3 + ul > li:first-child { margin-top: 0; }
 
-/* 4. The File List Container (Nested UL) */
 h3 + ul > li > ul {
   list-style: none;
   padding-left: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between files */
+  gap: 10px;
 }
 
-/* 5. THE FILE ROW (High Texture Item) */
+/* The File Rows (Glass Pills) */
 h3 + ul > li > ul > li {
-  margin: 0;
-  padding: 0;
-  border: 1px solid #eef1f5;
-  background-color: #fafbfd; /* Very light grey/blue tint */
-  border-radius: 10px;
-  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
-/* Hover Effect on the Row */
 h3 + ul > li > ul > li:hover {
-  background-color: white;
-  border-color: var(--primary);
-  transform: translateY(-2px) scale(1.005);
-  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.1);
+  background: rgba(255, 255, 255, 0.95); /* Becomes solid on hover */
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(108, 92, 231, 0.15);
 }
 
-/* 6. The Link Styling */
 h3 + ul > li > ul > li a {
   display: flex;
   align-items: center;
   padding: 14px 20px;
   text-decoration: none;
-  color: #57606f;
-  font-weight: 500;
-  font-size: 1rem;
-  width: 100%; /* Makes the whole box clickable */
-  box-sizing: border-box;
+  color: #444;
+  font-weight: 600;
 }
 
-/* Icon (::before) - Automatically adds a document icon */
 h3 + ul > li > ul > li a::before {
-  content: "📄"; /* You can use 📝 or 📁 too */
+  content: "📄"; 
   margin-right: 15px;
   font-size: 1.2rem;
-  opacity: 0.7;
-  transition: 0.2s;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
 }
 
-/* Download Arrow (::after) - Appears on hover */
 h3 + ul > li > ul > li a::after {
-  content: "⬇"; /* Download arrow */
-  margin-left: auto; /* Pushes it to the far right */
+  content: "⬇"; 
+  margin-left: auto;
   color: var(--primary);
   opacity: 0;
   transform: translateX(-10px);
   transition: all 0.2s ease;
-  font-weight: bold;
-}
-
-/* Link Hover Interactions */
-h3 + ul > li > ul > li:hover a {
-  color: var(--primary); /* Text turns purple */
-}
-
-h3 + ul > li > ul > li:hover a::before {
-  opacity: 1;
-  transform: scale(1.1); /* Icon pops */
 }
 
 h3 + ul > li > ul > li:hover a::after {
-  opacity: 1; /* Arrow appears */
-  transform: translateX(0); /* Arrow slides in */
+  opacity: 1; 
+  transform: translateX(0);
 }
 
 /* ========================================= */
+/* --- HOMEPAGE SPECIFIC STYLES (GLASS) --- */
+/* ========================================= */
 
-/* 5. Footer */
-footer {
-  background: #2d3436;
-  color: white;
-  text-align: center;
-  padding: 40px 0;
-  margin-top: 80px;
-}
-footer p { margin: 8px 0; font-size: 0.9rem; opacity: 0.7; }
-
-/* --- HOMEPAGE SPECIFIC STYLES --- */
+/* 1. The Welcome Hero Section */
 .hero-section {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(135deg, #fffaf0 0%, #fff 100%);
-  border-bottom: 1px solid #f0f0f0;
+  
+  /* Glass Effect */
+  background: rgba(255, 255, 255, 0.45); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  border-radius: 24px; /* Rounder corners */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   margin-bottom: 50px;
 }
 
@@ -274,25 +260,26 @@ footer p { margin: 8px 0; font-size: 0.9rem; opacity: 0.7; }
   display: block;
   margin-left: auto;
   margin-right: auto;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  filter: drop-shadow(0 8px 10px rgba(0,0,0,0.1));
 }
 
 .subtitle {
   font-size: 1.25rem;
   color: #6c5ce7; 
-  font-weight: 700;
+  font-weight: 800;
   margin-top: -10px;
-  letter-spacing: -0.5px;
+  text-shadow: 0 1px 1px rgba(255,255,255,0.8);
 }
 
 .mission {
-  color: #636e72;
+  color: #444;
   max-width: 550px;
   margin: 15px auto;
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
 }
 
+/* 2. The 3 Cards (Exams, Notes, Activities) */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -301,29 +288,34 @@ footer p { margin: 8px 0; font-size: 0.9rem; opacity: 0.7; }
 }
 
 .card {
-  background: white;
+  /* Glass Card Base */
+  background: rgba(255, 255, 255, 0.55); 
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
   padding: 35px 25px;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
   text-decoration: none;
   color: #2d3436;
   transition: all 0.3s ease;
-  border: 1px solid #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
 
 .card:hover {
+  /* On hover, becomes clearer/whiter and floats up */
+  background: rgba(255, 255, 255, 0.85); 
   transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(108, 92, 231, 0.15); 
-  border-color: #a29bfe;
+  box-shadow: 0 15px 40px rgba(108, 92, 231, 0.2); 
+  border-color: #fff;
 }
 
 .card .icon {
   font-size: 3.5rem;
   margin-bottom: 20px;
   display: inline-block;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -332,7 +324,7 @@ footer p { margin: 8px 0; font-size: 0.9rem; opacity: 0.7; }
 }
 
 .card h3 {
-  /* Resetting header styles for cards */
+  /* Resetting header styles just for cards */
   margin: 0;
   color: #2d3436;
   border: none;
@@ -341,53 +333,64 @@ footer p { margin: 8px 0; font-size: 0.9rem; opacity: 0.7; }
   box-shadow: none;
   border-radius: 0;
   margin-top: 10px;
+  backdrop-filter: none;
+  text-shadow: none;
 }
 
 .card p {
   font-size: 0.95rem;
-  color: #636e72;
+  color: #555;
   margin-top: 10px;
-  line-height: 1.5;
 }
 
+/* 3. Updates Section (Yellow/Gold Glass) */
 .updates-section {
-  background: white;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
   padding: 40px;
-  border-radius: 16px;
-  border: 1px solid #eee;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--glass-shadow);
   position: relative;
 }
-.updates-section::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 20px; bottom: 20px;
-  width: 6px;
-  background: var(--accent);
-  border-radius: 0 4px 4px 0;
-}
 
-/* --- TABLE STYLES --- */
+/* ========================================= */
+
+/* Footer */
+footer {
+  background: rgba(45, 52, 54, 0.85); /* Dark Glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 80px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+footer p { margin: 8px 0; font-size: 0.9rem; opacity: 0.8; }
+
+/* Table Styles for Activities */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 30px 0;
-  background-color: white;
-  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  border: 1px solid #eee;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
 }
 
 thead {
-  background-color: var(--primary);
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
   color: white;
 }
 
 th, td {
   padding: 18px;
   text-align: left;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 th {
@@ -398,7 +401,7 @@ th {
 }
 
 tr:hover {
-  background-color: #fafbfd;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 600px) {
