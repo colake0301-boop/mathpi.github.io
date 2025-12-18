@@ -13,6 +13,10 @@
   --glass-blur: blur(20px); 
 }
 
+* {
+  box-sizing: border-box; /* PREVENTS WIDTH ISSUES */
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
@@ -27,7 +31,7 @@ body {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px; /* This padding controls the width of EVERYTHING */
 }
 
 /* ========================================= */
@@ -42,7 +46,6 @@ header {
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  /* Removed fixed height so it's flexible */
   padding: 12px 0;
   transition: all 0.3s ease;
 }
@@ -51,7 +54,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allows wrapping on zoom */
+  flex-wrap: wrap; 
 }
 
 .logo a {
@@ -87,7 +90,7 @@ nav a:hover {
 /* 3. Main Content & Search */
 /* ========================================= */
 main {
-  padding: 40px 0;
+  padding: 20px 0;
   min-height: 80vh;
 }
 
@@ -104,10 +107,10 @@ h2 {
   text-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
-/* --- APP-STYLE SEARCH BAR (Integrated) --- */
+/* --- APP-STYLE SEARCH BAR --- */
 .search-sticky-wrapper {
   position: sticky;
-  top: 85px; /* Sits below header on Desktop */
+  top: 85px; /* Desktop position */
   z-index: 90;
   background: var(--glass-bg);
   backdrop-filter: blur(25px); 
@@ -122,7 +125,7 @@ h2 {
 .search-box {
   display: flex;
   align-items: center;
-  gap: 8px; /* Space between Menu, Input, Top */
+  gap: 8px; 
   width: 100%;
 }
 
@@ -143,7 +146,7 @@ h2 {
   border-color: var(--primary);
 }
 
-/* Square Buttons for Menu and Back-to-Top */
+/* Square Buttons */
 .icon-btn {
   width: 46px;
   height: 46px; 
@@ -159,14 +162,13 @@ h2 {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Hidden by default on Desktop */
 .menu-toggler { display: none; }
 
-/* The Mobile Dropdown Menu */
+/* Mobile Dropdown Menu */
 .mobile-menu-dropdown {
   display: none; 
   position: absolute; 
-  top: 100%; /* Right below search bar */
+  top: 100%; 
   left: 0;
   width: 100%;
   background: white;
@@ -283,7 +285,7 @@ h3 + ul > li > ul > li:hover a::after {
 }
 
 /* ========================================= */
-/* 5. HOMEPAGE SPECIFIC STYLES (RESTORED!) */
+/* 5. HOMEPAGE SPECIFIC STYLES */
 /* ========================================= */
 
 .hero-section {
@@ -298,10 +300,7 @@ h3 + ul > li > ul > li:hover a::after {
   border: 1px solid var(--glass-border);
 }
 
-.hero-section h1 {
-    color: black;
-    text-shadow: none;
-}
+.hero-section h1 { color: black; text-shadow: none; }
 
 .school-badge {
   max-width: 110px;
@@ -390,10 +389,7 @@ h3 + ul > li > ul > li:hover a::after {
   border: 1px solid var(--glass-border);
 }
 
-.updates-section h2 {
-    color: #2d3436; 
-    text-shadow: none;
-}
+.updates-section h2 { color: #2d3436; text-shadow: none; }
 
 /* ========================================= */
 /* 6. Footer & Tables */
@@ -420,10 +416,7 @@ table {
   border: 1px solid var(--glass-border);
 }
 
-thead {
-  background: #2d3436;
-  color: white;
-}
+thead { background: #2d3436; color: white; }
 
 th, td {
   padding: 18px;
@@ -438,9 +431,7 @@ th {
   letter-spacing: 1.2px;
 }
 
-tr:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
+tr:hover { background-color: rgba(255, 255, 255, 0.3); }
 
 /* ========================================= */
 /* 7. MOBILE OPTIMIZATION */
@@ -448,7 +439,7 @@ tr:hover {
 
 @media (max-width: 768px) {
   
-  /* A. Normal Header Adjustments */
+  /* A. Header Logic */
   .header-container {
     flex-direction: column;
     gap: 10px;
@@ -459,28 +450,17 @@ tr:hover {
     width: 100%;
   }
 
-  /* B. Mobile App Logic (Hidden Header + Stick Search) */
-  
-  /* Show Menu Button */
+  /* B. Mobile App Logic */
   .menu-toggler { display: flex; }
 
-  /* Fix Search Bar Sticking */
+  /* FIX: WIDTH CONSISTENCY */
   .search-sticky-wrapper {
-    /* If header is hidden (Exam/Notes pages), this becomes 0.
-       If header is present (Home page), this value doesn't matter as much 
-       because this wrapper usually isn't on the homepage. */
+    /* We removed the negative margins and width calc.
+       Now it stays 100% of the container, just like the cards.
+    */
     top: 0; 
-    
-    margin-left: -20px; 
-    margin-right: -20px;
-    width: calc(100% + 40px);
-    
-    border-radius: 0 0 16px 16px;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    
-    /* Make background solid enough to hide content scrolling behind */
+    border-radius: 16px; 
+    margin: 10px 0 30px 0; /* Add some spacing */
     background: rgba(255, 255, 255, 0.95); 
   }
   
