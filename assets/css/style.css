@@ -6,7 +6,7 @@
   --accent: #fdcb6e;  /* Gold */
   --text: #2d3436;
   
-  /* GLASS VARIABLES - ICY LOOK */
+  /* GLASS VARIABLES */
   --glass-bg: rgba(255, 255, 255, 0.65); 
   --glass-border: rgba(255, 255, 255, 0.5);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -19,8 +19,6 @@ body {
   padding: 0;
   color: var(--text);
   line-height: 1.6;
-  
-  /* --- BACKGROUND: DEEP MATH GRADIENT --- */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background-attachment: fixed; 
   min-height: 100vh;
@@ -33,18 +31,18 @@ body {
 }
 
 /* ========================================= */
-/* 2. Frosted Glass Header */
+/* 2. HEADER (Desktop) */
 /* ========================================= */
 header {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.90); /* Solid enough to hide scroll */
   backdrop-filter: blur(20px);         
   -webkit-backdrop-filter: blur(20px); 
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  height: 70px; /* Desktop Height */
+  height: 70px;
   transition: all 0.3s ease;
 }
 
@@ -60,7 +58,6 @@ header {
   font-weight: 800;
   color: var(--primary);
   text-decoration: none;
-  letter-spacing: -0.5px;
 }
 
 nav a {
@@ -91,7 +88,6 @@ h1 {
   color: black; 
   border-bottom: 2px solid rgba(255,255,255,0.4); 
   padding-bottom: 15px; 
-  text-shadow: none;
 }
 
 h2 { 
@@ -100,38 +96,30 @@ h2 {
   text-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
-/* --- FIXED: Sticky Glass Search Bar --- */
+/* --- SEARCH BAR (Desktop) --- */
 .search-sticky-wrapper {
   position: sticky;
-  top: 70px; /* Matches desktop header height */
-  z-index: 90;
-  
-  /* THE FIX: Apply glass background to the wrapper itself */
+  top: 85px; /* Sits nicely below desktop header */
+  z-index: 900;
   background: var(--glass-bg);
-  backdrop-filter: blur(25px); /* Strong blur to hide text behind */
+  backdrop-filter: blur(25px); 
   -webkit-backdrop-filter: blur(25px);
-  
   padding: 15px;
   margin-bottom: 40px;
-  border-radius: 16px; /* Rounded floating bar look */
+  border-radius: 16px; 
   border: 1px solid var(--glass-border);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-.search-box {
-  display: flex;
-  gap: 12px;
-  /* Removed inner glass effect since parent has it now */
+  transition: all 0.3s ease;
 }
 
 .search-box input {
-  flex-grow: 1;
+  width: 100%;
   padding: 12px 20px;
   font-size: 1rem;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.75); /* Solid input for readability */
-  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.8); 
+  box-sizing: border-box; /* Ensures padding doesn't break width */
 }
 
 .search-box input:focus {
@@ -142,11 +130,11 @@ h2 {
 }
 
 /* ========================================= */
-/* 4. UNIFIED GLASS COURSE LISTS */
+/* 4. CARD STYLES (Courses) */
 /* ========================================= */
 
 h3 {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   color: var(--primary); 
   padding: 18px 30px;
   border-radius: 16px 16px 0 0;
@@ -198,13 +186,6 @@ h3 + ul > li > ul > li {
   transition: all 0.3s ease;
 }
 
-h3 + ul > li > ul > li:hover {
-  background: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary);
-}
-
 h3 + ul > li > ul > li a {
   display: flex;
   align-items: center;
@@ -220,22 +201,8 @@ h3 + ul > li > ul > li a::before {
   font-size: 1.2rem;
 }
 
-h3 + ul > li > ul > li a::after {
-  content: "⬇"; 
-  margin-left: auto;
-  color: var(--primary);
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.2s ease;
-}
-
-h3 + ul > li > ul > li:hover a::after {
-  opacity: 1; 
-  transform: translateX(0);
-}
-
 /* ========================================= */
-/* 5. HOMEPAGE SPECIFIC STYLES */
+/* 5. HOMEPAGE & FOOTER */
 /* ========================================= */
 
 .hero-section {
@@ -249,35 +216,10 @@ h3 + ul > li > ul > li:hover a::after {
   margin-bottom: 50px;
   border: 1px solid var(--glass-border);
 }
-
-.hero-section h1 {
-    color: black;
-    text-shadow: none;
-}
-
-.school-badge {
-  max-width: 110px;
-  margin-bottom: 25px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
-}
-
-.subtitle {
-  font-size: 1.25rem;
-  color: black; 
-  font-weight: 800;
-  margin-top: -10px;
-}
-
-.mission {
-  color: #333; 
-  max-width: 550px;
-  margin: 15px auto;
-  font-style: italic;
-  font-size: 1.1rem;
-}
+.hero-section h1 { color: black; text-shadow: none; border: none;}
+.subtitle { font-size: 1.25rem; color: black; font-weight: 800; }
+.school-badge { max-width: 110px; margin-bottom: 25px; display: block; margin: 0 auto 25px auto; }
+.mission { color: #333; max-width: 550px; margin: 15px auto; font-style: italic; }
 
 .card-grid {
   display: grid;
@@ -298,58 +240,11 @@ h3 + ul > li > ul > li:hover a::after {
   border: 1px solid var(--glass-border);
   text-align: center;
 }
+.card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.9); }
+.card .icon { font-size: 3.5rem; display: block; margin-bottom: 20px; }
+.card h3 { background: none; border: none; padding: 0; box-shadow: none; margin-top: 10px; color: #2d3436; }
+.card p { font-size: 0.95rem; color: #555; }
 
-.card:hover {
-  background: rgba(255, 255, 255, 0.95); 
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
-}
-
-.card .icon {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.card:hover .icon {
-  transform: scale(1.2) rotate(5deg);
-}
-
-.card h3 {
-  margin: 0;
-  color: #2d3436;
-  border: none;
-  padding: 0;
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-  margin-top: 10px;
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: #555;
-  margin-top: 10px;
-}
-
-.updates-section {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: var(--glass-shadow);
-  border: 1px solid var(--glass-border);
-}
-
-.updates-section h2 {
-    color: #2d3436; 
-    text-shadow: none;
-}
-
-/* ========================================= */
-/* 6. Footer & Tables */
-/* ========================================= */
 footer {
   background: rgba(0, 0, 0, 0.4); 
   backdrop-filter: blur(10px);
@@ -360,86 +255,56 @@ footer {
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 30px 0;
-  background-color: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--glass-shadow);
-  border: 1px solid var(--glass-border);
-}
-
-thead {
-  background: #2d3436;
-  color: white;
-}
-
-th, td {
-  padding: 18px;
-  text-align: left;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-th {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 1.2px;
-}
-
-tr:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
 /* ========================================= */
-/* 7. MOBILE OPTIMIZATION */
+/* 6. MOBILE FIX (The Important Part) */
 /* ========================================= */
 
 @media (max-width: 768px) {
+  /* 1. COMPACT HEADER */
   header {
     height: auto; 
-    padding: 12px 0;
+    padding: 10px 0;
+    position: sticky; /* Keep header sticky */
+    top: 0;
   }
 
   .header-container {
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column; /* Stack them */
+    gap: 8px; /* Tighter gap */
   }
 
+  .logo a {
+    font-size: 1.3rem; /* Smaller Logo */
+  }
+
+  /* 2. COMPACT NAVIGATION */
   nav {
     display: flex;
-    flex-wrap: wrap; 
     justify-content: center; 
-    gap: 8px; 
+    gap: 5px; 
     width: 100%;
   }
 
   nav a {
     margin: 0; 
-    font-size: 0.85rem; 
-    padding: 6px 12px; 
-    background: rgba(255,255,255,0.4); 
+    font-size: 0.8rem; /* Smaller text */
+    padding: 6px 10px; /* Smaller buttons */
+    background: rgba(255,255,255,0.5); 
   }
 
-  /* --- SEARCH BAR MOBILE FIX --- */
+  /* 3. UN-STICK SEARCH BAR ON MOBILE 
+     This fixes the overlapping weirdness. The search bar will 
+     scroll normally with the page content. */
   .search-sticky-wrapper {
-    /* Pushes it below the taller mobile header */
-    top: 110px; 
-    
-    /* Makes the glass bar stretch full width to hide text */
-    margin-left: -20px; 
-    margin-right: -20px;
-    width: calc(100% + 40px);
-    
-    border-radius: 0; /* Flat bar on mobile looks cleaner */
-    border-left: none;
-    border-right: none;
+    position: static; /* No longer sticky on mobile */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    z-index: 1; /* Reset layer */
+    transform: none; /* Reset any transforms */
   }
-  
+
+  /* 4. Fix table scrolling */
   table { 
     display: block; 
     overflow-x: auto; 
