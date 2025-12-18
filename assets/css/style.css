@@ -31,10 +31,10 @@ body {
 }
 
 /* ========================================= */
-/* 2. HEADER (Desktop) */
+/* 2. HEADER (Desktop Standard) */
 /* ========================================= */
 header {
-  background: rgba(255, 255, 255, 0.90); /* Solid enough to hide scroll */
+  background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(20px);         
   -webkit-backdrop-filter: blur(20px); 
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -42,7 +42,7 @@ header {
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  height: 70px;
+  height: 70px; /* Standard Desktop Height */
   transition: all 0.3s ease;
 }
 
@@ -99,11 +99,15 @@ h2 {
 /* --- SEARCH BAR (Desktop) --- */
 .search-sticky-wrapper {
   position: sticky;
-  top: 85px; /* Sits nicely below desktop header */
+  /* Sits nicely below desktop header (70px + 15px gap) */
+  top: 85px; 
   z-index: 900;
+  
+  /* The Glass Background for the Wrapper */
   background: var(--glass-bg);
   backdrop-filter: blur(25px); 
   -webkit-backdrop-filter: blur(25px);
+  
   padding: 15px;
   margin-bottom: 40px;
   border-radius: 16px; 
@@ -119,7 +123,7 @@ h2 {
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.8); 
-  box-sizing: border-box; /* Ensures padding doesn't break width */
+  box-sizing: border-box; 
 }
 
 .search-box input:focus {
@@ -130,7 +134,7 @@ h2 {
 }
 
 /* ========================================= */
-/* 4. CARD STYLES (Courses) */
+/* 4. CARD STYLES */
 /* ========================================= */
 
 h3 {
@@ -256,25 +260,27 @@ footer {
 }
 
 /* ========================================= */
-/* 6. MOBILE FIX (The Important Part) */
+/* 6. MOBILE OPTIMIZATION (THE SOLUTION) */
 /* ========================================= */
 
 @media (max-width: 768px) {
   /* 1. COMPACT HEADER */
   header {
-    height: auto; 
+    height: auto; /* Allow header to shrink */
     padding: 10px 0;
-    position: sticky; /* Keep header sticky */
+    /* Ensure Header stays sticky at absolute top */
+    position: sticky; 
     top: 0;
   }
 
+  /* Stack items tightly to save space */
   .header-container {
-    flex-direction: column; /* Stack them */
-    gap: 8px; /* Tighter gap */
+    flex-direction: column; 
+    gap: 5px; 
   }
 
   .logo a {
-    font-size: 1.3rem; /* Smaller Logo */
+    font-size: 1.2rem; /* Smaller Logo */
   }
 
   /* 2. COMPACT NAVIGATION */
@@ -289,22 +295,29 @@ footer {
     margin: 0; 
     font-size: 0.8rem; /* Smaller text */
     padding: 6px 10px; /* Smaller buttons */
-    background: rgba(255,255,255,0.5); 
+    background: rgba(255,255,255,0.4); 
   }
 
-  /* 3. UN-STICK SEARCH BAR ON MOBILE 
-     This fixes the overlapping weirdness. The search bar will 
-     scroll normally with the page content. */
+  /* 3. STICKY SEARCH BAR (Calculated Position) */
+  /* The Mobile Header is approx 90px tall now. 
+     We stick the search bar right below it. */
   .search-sticky-wrapper {
-    position: static; /* No longer sticky on mobile */
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    z-index: 1; /* Reset layer */
-    transform: none; /* Reset any transforms */
+    position: sticky; 
+    top: 90px; /* Snaps right below the header */
+    
+    /* Make it stretch full width to block text behind it */
+    margin-left: -20px; 
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    border-radius: 0; /* Flat bar looks cleaner when full width */
+    border-left: none;
+    border-right: none;
+    
+    /* Ensure glass effect is strong on mobile */
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(25px);
   }
-
-  /* 4. Fix table scrolling */
+  
   table { 
     display: block; 
     overflow-x: auto; 
