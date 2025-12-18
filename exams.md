@@ -52,7 +52,7 @@ title: Exams
 ### MAT4002: Topology and Geometry
 * **2024**
   * [Midterm Exam Paper](./exams/MAT4002/Mat4002%20Year%202024%20Midterm.pdf)
-  * [Midterm Exam Paper](./exams/MAT4002/Previous%20MAT4002_Final_Examination.pdf)
+  * [Final Exam Paper](./exams/MAT4002/Previous%20MAT4002_Final_Examination.pdf)
 * **2022**
   * [Midterm Exam Paper](./exams/MAT4002/MAT4002_2022_Midterm.pdf)
   * [Final Exam Paper](./exams/MAT4002/MAT4002_2022_Final.pdf)
@@ -64,7 +64,7 @@ title: Exams
   * [Final Exam Paper](./exams/MAT4033/MAT4033_2024_Final.pdf)
 * **2023**
   * [Midterm Exam Paper](./exams/MAT4033/MAT4033_2023_Midterm.pdf)
-  * [Midterm Exam Paper](./exams/MAT4033/MAT4033_2023_Final.pdf)
+  * [Final Exam Paper](./exams/MAT4033/MAT4033_2023_Final.pdf)
 
 
 ### LongFeng Math Contest
