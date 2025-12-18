@@ -5,7 +5,7 @@ title: Exams
 ### MAT1001: Calculus I
 * **2024**
   * [Midterm Exam Paper](./exams/MAT1001/MAT1001_2024_Midterm.pdf)
-  * [Midterm Exam Paper](./exams/MAT1001/MAT1001_2024_Final.pdf)
+  * [Final Exam Paper](./exams/MAT1001/MAT1001_2024_Final.pdf)
 * **2023**
   * [Midterm Exam Paper](./exams/MAT1001/MAT1001_2023_Midterm.pdf)
 * **2022**
