@@ -44,8 +44,8 @@ header {
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  height: 70px; /* Fixed height for Desktop */
-  transition: height 0.3s ease;
+  height: 70px; /* Desktop Height */
+  transition: all 0.3s ease;
 }
 
 .header-container {
@@ -100,25 +100,28 @@ h2 {
   text-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
-/* Sticky Glass Search Bar */
+/* --- FIXED: Sticky Glass Search Bar --- */
 .search-sticky-wrapper {
   position: sticky;
-  top: 70px; /* Desktop sticky position */
+  top: 70px; /* Matches desktop header height */
   z-index: 90;
-  padding: 20px 0;
+  
+  /* THE FIX: Apply glass background to the wrapper itself */
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px); /* Strong blur to hide text behind */
+  -webkit-backdrop-filter: blur(25px);
+  
+  padding: 15px;
   margin-bottom: 40px;
-  transition: top 0.3s ease;
+  border-radius: 16px; /* Rounded floating bar look */
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 .search-box {
   display: flex;
   gap: 12px;
-  background: var(--glass-bg); 
-  backdrop-filter: var(--glass-blur);
-  padding: 10px;
-  border-radius: 16px;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  /* Removed inner glass effect since parent has it now */
 }
 
 .search-box input {
@@ -127,7 +130,7 @@ h2 {
   font-size: 1rem;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.6); 
+  background: rgba(255, 255, 255, 0.75); /* Solid input for readability */
   transition: all 0.2s ease;
 }
 
@@ -392,47 +395,51 @@ tr:hover {
 }
 
 /* ========================================= */
-/* 7. MOBILE OPTIMIZATION (THE FIX) */
+/* 7. MOBILE OPTIMIZATION */
 /* ========================================= */
 
 @media (max-width: 768px) {
-  /* 1. Reset Header Height so it can grow */
   header {
     height: auto; 
     padding: 12px 0;
   }
 
-  /* 2. Stack Logo on top, Nav below */
   .header-container {
     flex-direction: column;
     justify-content: center;
     gap: 10px;
   }
 
-  /* 3. Fix the Navigation Row */
   nav {
     display: flex;
-    flex-wrap: wrap; /* Allows links to form 2 lines if needed */
-    justify-content: center; /* Centers the links */
-    gap: 8px; /* Adds space between the buttons */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 8px; 
     width: 100%;
   }
 
-  /* 4. Make Links Smaller & Compact */
   nav a {
-    margin: 0; /* Remove the big desktop margin */
-    font-size: 0.85rem; /* Smaller text size */
-    padding: 6px 12px; /* Smaller button size */
-    background: rgba(255,255,255,0.4); /* Subtle background for clarity */
+    margin: 0; 
+    font-size: 0.85rem; 
+    padding: 6px 12px; 
+    background: rgba(255,255,255,0.4); 
   }
 
-  /* 5. Adjust Search Bar Sticky Position */
-  /* Since header is taller now (Logo + Nav), search needs to sit lower */
+  /* --- SEARCH BAR MOBILE FIX --- */
   .search-sticky-wrapper {
+    /* Pushes it below the taller mobile header */
     top: 110px; 
+    
+    /* Makes the glass bar stretch full width to hide text */
+    margin-left: -20px; 
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    
+    border-radius: 0; /* Flat bar on mobile looks cleaner */
+    border-left: none;
+    border-right: none;
   }
   
-  /* 6. Allow tables to scroll horizontally on phone */
   table { 
     display: block; 
     overflow-x: auto; 
