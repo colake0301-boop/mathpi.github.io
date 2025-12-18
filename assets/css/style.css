@@ -2,10 +2,15 @@
 /* 1. Global Reset & Fonts */
 /* ========================================= */
 :root {
-  --primary: #6c5ce7; 
+  --primary: #6c5ce7; /* CUHK Purple */
+  --accent: #fdcb6e;  /* Gold */
   --text: #2d3436;
-  --glass-bg: rgba(255, 255, 255, 0.85); 
+  
+  /* GLASS VARIABLES - ICY LOOK */
+  --glass-bg: rgba(255, 255, 255, 0.65); 
   --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  --glass-blur: blur(20px); 
 }
 
 body {
@@ -26,24 +31,27 @@ body {
 }
 
 /* ========================================= */
-/* 2. GLOBAL HEADER (Restored Stability) */
+/* 2. Frosted Glass Header */
 /* ========================================= */
 header {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);         
   -webkit-backdrop-filter: blur(20px); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  /* Removed fixed height so it's flexible */
   padding: 12px 0;
   transition: all 0.3s ease;
 }
 
 .header-container {
   display: flex;
-  justify-content: space-between; /* Logo Left, Nav Right */
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on zoom */
 }
 
 .logo a {
@@ -51,12 +59,13 @@ header {
   font-weight: 800;
   color: var(--primary);
   text-decoration: none;
-  white-space: nowrap;
+  letter-spacing: -0.5px;
 }
 
 nav {
   display: flex;
-  gap: 15px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -64,10 +73,9 @@ nav a {
   color: #555;
   font-weight: 600;
   font-size: 0.95rem;
+  transition: all 0.3s ease;
   padding: 8px 16px;
   border-radius: 20px; 
-  white-space: nowrap;
-  transition: background 0.2s;
 }
 
 nav a:hover {
@@ -76,38 +84,56 @@ nav a:hover {
 }
 
 /* ========================================= */
-/* 3. APP-STYLE SEARCH BAR (Mobile Integration) */
+/* 3. Main Content & Search */
 /* ========================================= */
+main {
+  padding: 40px 0;
+  min-height: 80vh;
+}
 
+h1 { 
+  color: black; 
+  border-bottom: 2px solid rgba(255,255,255,0.4); 
+  padding-bottom: 15px; 
+  text-shadow: none;
+}
+
+h2 { 
+  margin-top: 50px; 
+  color: white; 
+  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
+/* --- APP-STYLE SEARCH BAR (Integrated) --- */
 .search-sticky-wrapper {
   position: sticky;
-  top: 85px; /* Default for Desktop (below header) */
-  z-index: 900;
+  top: 85px; /* Sits below header on Desktop */
+  z-index: 90;
   background: var(--glass-bg);
   backdrop-filter: blur(25px); 
   -webkit-backdrop-filter: blur(25px);
   padding: 10px;
-  margin: 30px 0;
+  margin-bottom: 40px;
   border-radius: 16px; 
   border: 1px solid var(--glass-border);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-/* The Flex Row: [Menu] [Search Input] [Top] */
 .search-box {
   display: flex;
   align-items: center;
-  gap: 8px; 
+  gap: 8px; /* Space between Menu, Input, Top */
   width: 100%;
 }
 
 .search-box input {
-  flex-grow: 1; 
-  padding: 12px 15px;
+  flex-grow: 1;
+  padding: 12px 20px;
   font-size: 1rem;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.85); 
+  background: rgba(255, 255, 255, 0.75); 
+  transition: all 0.2s ease;
 }
 
 .search-box input:focus {
@@ -117,13 +143,13 @@ nav a:hover {
   border-color: var(--primary);
 }
 
-/* Square Buttons (Menu & Top) */
+/* Square Buttons for Menu and Back-to-Top */
 .icon-btn {
   width: 46px;
   height: 46px; 
   border: none;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.85);
   color: var(--primary);
   font-size: 1.4rem; 
   cursor: pointer;
@@ -133,18 +159,18 @@ nav a:hover {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Hide Menu Button on Desktop */
+/* Hidden by default on Desktop */
 .menu-toggler { display: none; }
 
-/* Dropdown Menu (Absolute Positioned) */
+/* The Mobile Dropdown Menu */
 .mobile-menu-dropdown {
-  display: none; /* Hidden by default */
-  position: absolute; /* Floats over content */
-  top: 100%; /* Right below the search bar */
+  display: none; 
+  position: absolute; 
+  top: 100%; /* Right below search bar */
   left: 0;
   width: 100%;
   background: white;
-  border-radius: 0 0 16px 16px; /* Rounded bottom */
+  border-radius: 0 0 16px 16px; 
   overflow: hidden;
   border: 1px solid rgba(0,0,0,0.1);
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -159,73 +185,308 @@ nav a:hover {
   color: #333;
   font-weight: 600;
   border-bottom: 1px solid #f0f0f0;
-  background: white;
 }
-.mobile-menu-dropdown a:last-child { border-bottom: none; }
 .mobile-menu-dropdown a:hover { background: #f5f6fa; color: var(--primary); }
 
+
 /* ========================================= */
-/* 4. CONTENT STYLES */
+/* 4. UNIFIED GLASS COURSE LISTS */
 /* ========================================= */
-main { padding: 20px 0; min-height: 80vh; }
-h1, h2 { color: black; }
-h2 { color: white; margin-top: 50px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 
 h3 {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.75);
   color: var(--primary); 
-  padding: 15px 20px;
+  padding: 18px 30px;
   border-radius: 16px 16px 0 0;
   margin-bottom: 0; 
-  margin-top: 40px;
-  font-size: 1.2rem;
+  margin-top: 50px;
+  font-size: 1.3rem;
   font-weight: 800;
-  scroll-margin-top: 160px;
+  border: 1px solid var(--glass-border);
+  border-bottom: 1px solid rgba(108, 92, 231, 0.15);
+  scroll-margin-top: 180px;
 }
 
 h3 + ul {
-  background: rgba(255, 255, 255, 0.65); 
-  backdrop-filter: blur(20px);
-  padding: 20px;
+  background: var(--glass-bg); 
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  padding: 30px;
   border-radius: 0 0 16px 16px;
+  box-shadow: var(--glass-shadow);
   margin-top: 0;
   list-style: none;
+  border: 1px solid var(--glass-border);
+  border-top: none; 
 }
-h3 + ul > li { margin-top: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 10px; font-weight: bold; }
+
+h3 + ul > li {
+  color: #2d3436;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-top: 25px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 8px;
+}
 h3 + ul > li:first-child { margin-top: 0; }
-h3 + ul > li > ul { padding-left: 0; display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
-h3 + ul > li > ul > li { list-style: none; background: rgba(255, 255, 255, 0.6); border-radius: 10px; }
-h3 + ul > li > ul > li a { display: block; padding: 12px 15px; text-decoration: none; color: #333; font-weight: 600; }
-footer { background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px); color: white; text-align: center; padding: 30px 0; margin-top: 80px; }
+
+h3 + ul > li > ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+h3 + ul > li > ul > li {
+  background: rgba(255, 255, 255, 0.5); 
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+h3 + ul > li > ul > li:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+h3 + ul > li > ul > li a {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+}
+
+h3 + ul > li > ul > li a::before {
+  content: "📄"; 
+  margin-right: 15px;
+  font-size: 1.2rem;
+}
+
+h3 + ul > li > ul > li a::after {
+  content: "⬇"; 
+  margin-left: auto;
+  color: var(--primary);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.2s ease;
+}
+
+h3 + ul > li > ul > li:hover a::after {
+  opacity: 1; 
+  transform: translateX(0);
+}
 
 /* ========================================= */
-/* 5. MOBILE SPECIFIC RULES */
+/* 5. HOMEPAGE SPECIFIC STYLES (RESTORED!) */
+/* ========================================= */
+
+.hero-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--glass-bg); 
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: 24px;
+  box-shadow: var(--glass-shadow);
+  margin-bottom: 50px;
+  border: 1px solid var(--glass-border);
+}
+
+.hero-section h1 {
+    color: black;
+    text-shadow: none;
+}
+
+.school-badge {
+  max-width: 110px;
+  margin-bottom: 25px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: black; 
+  font-weight: 800;
+  margin-top: -10px;
+}
+
+.mission {
+  color: #333; 
+  max-width: 550px;
+  margin: 15px auto;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.card {
+  background: var(--glass-bg); 
+  backdrop-filter: var(--glass-blur);
+  padding: 35px 25px;
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+  text-decoration: none;
+  color: #2d3436;
+  transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
+  text-align: center;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.95); 
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
+}
+
+.card .icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.card h3 {
+  margin: 0;
+  color: #2d3436;
+  border: none;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+.updates-section {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
+}
+
+.updates-section h2 {
+    color: #2d3436; 
+    text-shadow: none;
+}
+
+/* ========================================= */
+/* 6. Footer & Tables */
+/* ========================================= */
+footer {
+  background: rgba(0, 0, 0, 0.4); 
+  backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 80px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  background-color: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
+}
+
+thead {
+  background: #2d3436;
+  color: white;
+}
+
+th, td {
+  padding: 18px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+th {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1.2px;
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================= */
+/* 7. MOBILE OPTIMIZATION */
 /* ========================================= */
 
 @media (max-width: 768px) {
   
-  /* A. GLOBAL HEADER (Homepage Mobile) */
-  /* We stack Logo and Nav cleanly */
+  /* A. Normal Header Adjustments */
   .header-container {
     flex-direction: column;
     gap: 10px;
   }
   
-  /* B. SEARCH BAR (Exams/Notes Mobile) */
-  /* Since we hide the global header in HTML for these pages,
-     we just need to style this bar to look like the main header. */
+  nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* B. Mobile App Logic (Hidden Header + Stick Search) */
+  
+  /* Show Menu Button */
+  .menu-toggler { display: flex; }
+
+  /* Fix Search Bar Sticking */
   .search-sticky-wrapper {
-    top: 0; /* Sticks to the very top */
-    margin: 0 -20px 20px -20px; /* Full width */
+    /* If header is hidden (Exam/Notes pages), this becomes 0.
+       If header is present (Home page), this value doesn't matter as much 
+       because this wrapper usually isn't on the homepage. */
+    top: 0; 
+    
+    margin-left: -20px; 
+    margin-right: -20px;
     width: calc(100% + 40px);
+    
     border-radius: 0 0 16px 16px;
     border-left: none;
     border-right: none;
     border-top: none;
-    padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.95); /* Solid header look */
+    
+    /* Make background solid enough to hide content scrolling behind */
+    background: rgba(255, 255, 255, 0.95); 
   }
-
-  /* Show the Menu Button (Hamburger) */
-  .menu-toggler { display: flex; }
+  
+  table { 
+    display: block; 
+    overflow-x: auto; 
+    white-space: nowrap;
+  }
 }
