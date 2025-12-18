@@ -2,6 +2,26 @@
 layout: default
 title: Exams
 ---
+### MAT1001: Calculus I
+* **2024**
+  * [Midterm Exam Paper](./exams/MAT1001/MAT1001_2024_Midterm.pdf)
+  * [Midterm Exam Paper](./exams/MAT1001/MAT1001_2024_Final.pdf)
+* **2023**
+  * [Midterm Exam Paper](./exams/MAT1001/MAT1001_2023_Midterm.pdf)
+* **2022**
+  * [Midterm Exam Paper](./exams/MAT1001/MAT1001_2022_Midterm.pdf)
+* **2021**
+  * [Midterm Exam Paper](./exams/MAT1001/MAT1001_2021_Midterm.pdf)
+
+
+### MAT1002: Calculus II
+* **2024**
+
+
+### MAT1011: Honor Calculus I
+* **2024**
+  * [Midterm Exam Paper](./exams/MAT1011/MAT1011_2024_Midterm.pdf)
+
 
 ### MAT1012: Honor Calculus II
 * **2024**

@@ -27,17 +27,53 @@
   <main>
     <div class="container">
       
-      {% if page.url contains 'exams' or page.url contains 'notes' %}
-    <div class="search-sticky-wrapper">
-      
-      <div class="search-box">
-        <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search course code (e.g. MAT2060)...">
-        
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="top-btn" title="Back to Top">⬆</button>
+     {% if page.url contains 'exams' or page.url contains 'notes' %}
+
+<style>
+  @media (max-width: 768px) {
+    header { display: none !important; } /* Hides the big top logo/nav */
+    .search-sticky-wrapper { top: 0 !important; } /* Sticks search to the very top */
+  }
+</style>
+
+<div class="search-sticky-wrapper">
+  
+  <div class="search-box">
+    <button class="icon-btn menu-toggler" onclick="toggleMobileMenu()" aria-label="Menu">
+      ☰
+    </button>
+
+    <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search code...">
+    
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="icon-btn" aria-label="Top">
+      ⬆
+    </button>
+  </div>
+
+  <div id="mobileDropdown" class="mobile-menu-dropdown">
+    <a href="{{ site.baseurl }}/">🏠 Home</a>
+    <a href="{{ site.baseurl }}/exams">📄 Exams</a>
+    <a href="{{ site.baseurl }}/notes">📓 Notes</a>
+    <a href="{{ site.baseurl }}/activities">📅 Activities</a>
+  </div>
+
+</div>
+
+<script>
+function toggleMobileMenu() {
+  var menu = document.getElementById("mobileDropdown");
+  if (menu.style.display === "block") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "block";
+  }
+}
+</script>
+
+{% endif %}
       </div>
-      
-    </div>
-    {% endif %}
+      {% endif %}
+
       {{ content }}
       
     </div>
