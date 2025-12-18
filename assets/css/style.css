@@ -2,15 +2,11 @@
 /* 1. Global Reset & Fonts */
 /* ========================================= */
 :root {
-  --primary: #6c5ce7; /* CUHK Purple */
-  --accent: #fdcb6e;  /* Gold */
+  --primary: #6c5ce7; 
   --text: #2d3436;
-  
-  /* GLASS VARIABLES */
   --glass-bg: rgba(255, 255, 255, 0.65); 
   --glass-border: rgba(255, 255, 255, 0.5);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-  --glass-blur: blur(20px); 
 }
 
 body {
@@ -31,26 +27,27 @@ body {
 }
 
 /* ========================================= */
-/* 2. HEADER (Desktop Standard) */
+/* 2. HEADER (Fluid & Zoom Friendly) */
 /* ========================================= */
 header {
   background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(20px);         
   -webkit-backdrop-filter: blur(20px); 
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  height: 70px; /* Standard Desktop Height */
+  padding: 10px 0;
   transition: all 0.3s ease;
 }
 
 .header-container {
   display: flex;
+  /* FLEX-WRAP IS KEY: It allows items to rearrange when you zoom in */
+  flex-wrap: wrap; 
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  gap: 15px; /* Adds space if items wrap */
 }
 
 .logo a {
@@ -58,17 +55,25 @@ header {
   font-weight: 800;
   color: var(--primary);
   text-decoration: none;
+  white-space: nowrap; /* Keeps logo on one line */
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Allows links to stack if screen is very small or zoomed */
+  justify-content: center;
 }
 
 nav a {
-  margin-left: 20px;
   text-decoration: none;
   color: #555;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
-  padding: 8px 16px;
+  padding: 8px 14px;
   border-radius: 20px; 
+  white-space: nowrap;
+  transition: background 0.2s;
 }
 
 nav a:hover {
@@ -77,53 +82,38 @@ nav a:hover {
 }
 
 /* ========================================= */
-/* 3. Main Content & Search */
+/* 3. STICKY SEARCH BAR + BUTTON (The Fix) */
 /* ========================================= */
-main {
-  padding: 40px 0;
-  min-height: 80vh;
-}
 
-h1 { 
-  color: black; 
-  border-bottom: 2px solid rgba(255,255,255,0.4); 
-  padding-bottom: 15px; 
-}
-
-h2 { 
-  margin-top: 50px; 
-  color: white; 
-  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
-}
-
-/* --- SEARCH BAR (Desktop) --- */
 .search-sticky-wrapper {
   position: sticky;
-  /* Sits nicely below desktop header (70px + 15px gap) */
-  top: 85px; 
+  top: 75px; /* Adjust based on header height */
   z-index: 900;
-  
-  /* The Glass Background for the Wrapper */
   background: var(--glass-bg);
   backdrop-filter: blur(25px); 
   -webkit-backdrop-filter: blur(25px);
-  
-  padding: 15px;
-  margin-bottom: 40px;
+  padding: 12px;
+  margin: 30px 0; /* Space above and below */
   border-radius: 16px; 
   border: 1px solid var(--glass-border);
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+}
+
+/* Flexbox container to align Input and Button side-by-side */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  width: 100%;
 }
 
 .search-box input {
-  width: 100%;
-  padding: 12px 20px;
+  flex-grow: 1; /* Takes up all available space */
+  padding: 12px 15px;
   font-size: 1rem;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.8); 
-  box-sizing: border-box; 
+  background: rgba(255, 255, 255, 0.85); 
 }
 
 .search-box input:focus {
@@ -133,194 +123,137 @@ h2 {
   border-color: var(--primary);
 }
 
+/* The New Top Button Style */
+.top-btn {
+  width: 46px;
+  height: 46px; /* Match input height */
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.top-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
 /* ========================================= */
-/* 4. CARD STYLES */
+/* 4. CONTENT STYLES */
 /* ========================================= */
+main { padding: 20px 0; min-height: 80vh; }
+
+h1, h2 { color: black; }
+h2 { color: white; margin-top: 50px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 
 h3 {
   background: rgba(255, 255, 255, 0.85);
   color: var(--primary); 
-  padding: 18px 30px;
+  padding: 15px 20px;
   border-radius: 16px 16px 0 0;
   margin-bottom: 0; 
-  margin-top: 50px;
-  font-size: 1.3rem;
+  margin-top: 40px;
+  font-size: 1.2rem;
   font-weight: 800;
-  border: 1px solid var(--glass-border);
-  border-bottom: 1px solid rgba(108, 92, 231, 0.15);
-  scroll-margin-top: 180px;
+  scroll-margin-top: 160px; /* Important for anchor clicking */
 }
 
 h3 + ul {
   background: var(--glass-bg); 
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  padding: 30px;
+  backdrop-filter: blur(20px);
+  padding: 20px;
   border-radius: 0 0 16px 16px;
-  box-shadow: var(--glass-shadow);
   margin-top: 0;
   list-style: none;
-  border: 1px solid var(--glass-border);
-  border-top: none; 
 }
 
 h3 + ul > li {
-  color: #2d3436;
-  font-weight: 800;
-  font-size: 1.15rem;
-  margin-top: 25px;
-  margin-bottom: 12px;
+  margin-top: 20px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
-  padding-bottom: 8px;
+  padding-bottom: 10px;
+  font-weight: bold;
 }
 h3 + ul > li:first-child { margin-top: 0; }
 
 h3 + ul > li > ul {
-  list-style: none;
   padding-left: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 10px;
 }
 
 h3 + ul > li > ul > li {
+  list-style: none;
   background: rgba(255, 255, 255, 0.5); 
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 12px;
-  transition: all 0.3s ease;
+  border-radius: 10px;
 }
 
 h3 + ul > li > ul > li a {
-  display: flex;
-  align-items: center;
-  padding: 14px 20px;
+  display: block;
+  padding: 12px 15px;
   text-decoration: none;
   color: #333;
   font-weight: 600;
 }
-
-h3 + ul > li > ul > li a::before {
-  content: "📄"; 
-  margin-right: 15px;
-  font-size: 1.2rem;
-}
-
-/* ========================================= */
-/* 5. HOMEPAGE & FOOTER */
-/* ========================================= */
-
-.hero-section {
-  text-align: center;
-  padding: 60px 20px;
-  background: var(--glass-bg); 
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-radius: 24px;
-  box-shadow: var(--glass-shadow);
-  margin-bottom: 50px;
-  border: 1px solid var(--glass-border);
-}
-.hero-section h1 { color: black; text-shadow: none; border: none;}
-.subtitle { font-size: 1.25rem; color: black; font-weight: 800; }
-.school-badge { max-width: 110px; margin-bottom: 25px; display: block; margin: 0 auto 25px auto; }
-.mission { color: #333; max-width: 550px; margin: 15px auto; font-style: italic; }
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  margin-bottom: 60px;
-}
-
-.card {
-  background: var(--glass-bg); 
-  backdrop-filter: var(--glass-blur);
-  padding: 35px 25px;
-  border-radius: 20px;
-  box-shadow: var(--glass-shadow);
-  text-decoration: none;
-  color: #2d3436;
-  transition: all 0.3s ease;
-  border: 1px solid var(--glass-border);
-  text-align: center;
-}
-.card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.9); }
-.card .icon { font-size: 3.5rem; display: block; margin-bottom: 20px; }
-.card h3 { background: none; border: none; padding: 0; box-shadow: none; margin-top: 10px; color: #2d3436; }
-.card p { font-size: 0.95rem; color: #555; }
 
 footer {
   background: rgba(0, 0, 0, 0.4); 
   backdrop-filter: blur(10px);
   color: white;
   text-align: center;
-  padding: 40px 0;
+  padding: 30px 0;
   margin-top: 80px;
-  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* ========================================= */
-/* 6. MOBILE OPTIMIZATION (THE SOLUTION) */
+/* 5. MOBILE SPECIFIC (Zoom & Alignment) */
 /* ========================================= */
 
 @media (max-width: 768px) {
-  /* 1. COMPACT HEADER */
-  header {
-    height: auto; /* Allow header to shrink */
-    padding: 10px 0;
-    /* Ensure Header stays sticky at absolute top */
-    position: sticky; 
-    top: 0;
-  }
-
-  /* Stack items tightly to save space */
+  
+  /* FLUID HEADER: Centers items and wraps if zoomed */
   .header-container {
-    flex-direction: column; 
-    gap: 5px; 
-  }
-
-  .logo a {
-    font-size: 1.2rem; /* Smaller Logo */
-  }
-
-  /* 2. COMPACT NAVIGATION */
-  nav {
-    display: flex;
     justify-content: center; 
-    gap: 5px; 
-    width: 100%;
+    gap: 10px;
   }
-
+  
   nav a {
-    margin: 0; 
-    font-size: 0.8rem; /* Smaller text */
-    padding: 6px 10px; /* Smaller buttons */
+    font-size: 0.85rem;
+    padding: 6px 12px;
     background: rgba(255,255,255,0.4); 
   }
 
-  /* 3. STICKY SEARCH BAR (Calculated Position) */
-  /* The Mobile Header is approx 90px tall now. 
-     We stick the search bar right below it. */
+  /* FULL WIDTH SEARCH BAR */
   .search-sticky-wrapper {
-    position: sticky; 
-    top: 90px; /* Snaps right below the header */
+    /* Stick below the header */
+    top: 0; 
+    position: sticky;
     
-    /* Make it stretch full width to block text behind it */
+    /* Makes it look seamless on mobile */
+    border-radius: 0; 
     margin-left: -20px; 
-    margin-right: -20px;
+    margin-right: -20px; 
     width: calc(100% + 40px);
-    border-radius: 0; /* Flat bar looks cleaner when full width */
+    
+    /* Ensure the glass is opaque enough to hide scrolling text */
+    background: rgba(255, 255, 255, 0.9); 
     border-left: none;
     border-right: none;
-    
-    /* Ensure glass effect is strong on mobile */
-    background: rgba(255, 255, 255, 0.85); 
-    backdrop-filter: blur(25px);
+    padding: 10px 20px;
   }
-  
-  table { 
-    display: block; 
-    overflow-x: auto; 
-    white-space: nowrap;
+
+  /* Adjust button size slightly for mobile fingers */
+  .top-btn {
+    width: 44px;
+    height: 44px;
   }
 }

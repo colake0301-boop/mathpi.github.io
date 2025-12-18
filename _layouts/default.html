@@ -28,15 +28,16 @@
     <div class="container">
       
       {% if page.url contains 'exams' or page.url contains 'notes' %}
-      <div class="search-sticky-wrapper">
-        <div class="search-box">
-          <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search course code (e.g. MAT2060)...">
-          
-          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="top-btn" title="Back to Top">⬆</button>
-        </div>
+    <div class="search-sticky-wrapper">
+      
+      <div class="search-box">
+        <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search course code (e.g. MAT2060)...">
+        
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="top-btn" title="Back to Top">⬆</button>
       </div>
-      {% endif %}
-
+      
+    </div>
+    {% endif %}
       {{ content }}
       
     </div>
