@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <header>
+  <header id="globalHeader">
     <div class="container header-container">
       <div class="logo">
         <a href="{{ '/' | relative_url }}">MathPi 🥧</a>
@@ -27,51 +27,47 @@
   <main>
     <div class="container">
       
-     {% if page.url contains 'exams' or page.url contains 'notes' %}
+      {% if page.url contains 'exams' or page.url contains 'notes' %}
 
-<style>
-  @media (max-width: 768px) {
-    header { display: none !important; } /* Hides the big top logo/nav */
-    .search-sticky-wrapper { top: 0 !important; } /* Sticks search to the very top */
-  }
-</style>
+      <style>
+        @media (max-width: 768px) {
+          #globalHeader { display: none !important; }
+        }
+      </style>
 
-<div class="search-sticky-wrapper">
-  
-  <div class="search-box">
-    <button class="icon-btn menu-toggler" onclick="toggleMobileMenu()" aria-label="Menu">
-      ☰
-    </button>
+      <div class="search-sticky-wrapper">
+        <div class="search-box">
+          
+          <button class="icon-btn menu-toggler" onclick="toggleMobileMenu()" aria-label="Menu">
+            ☰
+          </button>
 
-    <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search code...">
-    
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="icon-btn" aria-label="Top">
-      ⬆
-    </button>
-  </div>
+          <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search code...">
+          
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="icon-btn" aria-label="Top">
+            ⬆
+          </button>
+        </div>
 
-  <div id="mobileDropdown" class="mobile-menu-dropdown">
-    <a href="{{ site.baseurl }}/">🏠 Home</a>
-    <a href="{{ site.baseurl }}/exams">📄 Exams</a>
-    <a href="{{ site.baseurl }}/notes">📓 Notes</a>
-    <a href="{{ site.baseurl }}/activities">📅 Activities</a>
-  </div>
-
-</div>
-
-<script>
-function toggleMobileMenu() {
-  var menu = document.getElementById("mobileDropdown");
-  if (menu.style.display === "block") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "block";
-  }
-}
-</script>
-
-{% endif %}
+        <div id="mobileDropdown" class="mobile-menu-dropdown">
+          <a href="{{ site.baseurl }}/">🏠 Home</a>
+          <a href="{{ site.baseurl }}/exams">📑 Exams</a>
+          <a href="{{ site.baseurl }}/notes">📓 Notes</a>
+          <a href="{{ site.baseurl }}/activities">📅 Activities</a>
+        </div>
       </div>
+
+      <script>
+        function toggleMobileMenu() {
+          var menu = document.getElementById("mobileDropdown");
+          if (menu.style.display === "block") {
+            menu.style.display = "none";
+          } else {
+            menu.style.display = "block";
+          }
+        }
+      </script>
+
       {% endif %}
 
       {{ content }}
@@ -97,15 +93,15 @@ function toggleMobileMenu() {
       
       // 3. Loop through them to hide/show based on search
       headers.forEach(h3 => {
-        var ul = h3.nextElementSibling; // The list of files below the header
+        var ul = h3.nextElementSibling; 
         var text = h3.innerText || h3.textContent;
         
         if (text.toUpperCase().indexOf(filter) > -1) {
-          h3.style.display = "";       // Show Header
-          if(ul) ul.style.display = ""; // Show List
+          h3.style.display = "";       
+          if(ul) ul.style.display = ""; 
         } else {
-          h3.style.display = "none";    // Hide Header
-          if(ul) ul.style.display = "none"; // Hide List
+          h3.style.display = "none";    
+          if(ul) ul.style.display = "none"; 
         }
       });
     }

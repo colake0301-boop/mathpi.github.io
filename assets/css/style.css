@@ -4,7 +4,7 @@
 :root {
   --primary: #6c5ce7; 
   --text: #2d3436;
-  --glass-bg: rgba(255, 255, 255, 0.95); /* More solid for better reading */
+  --glass-bg: rgba(255, 255, 255, 0.85); 
   --glass-border: rgba(255, 255, 255, 0.5);
 }
 
@@ -26,26 +26,24 @@ body {
 }
 
 /* ========================================= */
-/* 2. HEADER (Desktop & Homepage) */
+/* 2. GLOBAL HEADER (Restored Stability) */
 /* ========================================= */
 header {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);         
   -webkit-backdrop-filter: blur(20px); 
   position: sticky;
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 15px 0;
+  padding: 12px 0;
   transition: all 0.3s ease;
 }
 
 .header-container {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: space-between;
+  justify-content: space-between; /* Logo Left, Nav Right */
   align-items: center;
-  gap: 15px; 
 }
 
 .logo a {
@@ -58,9 +56,7 @@ header {
 
 nav {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap; 
-  justify-content: center;
+  gap: 15px;
 }
 
 nav a {
@@ -68,7 +64,7 @@ nav a {
   color: #555;
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 20px; 
   white-space: nowrap;
   transition: background 0.2s;
@@ -80,12 +76,12 @@ nav a:hover {
 }
 
 /* ========================================= */
-/* 3. NEW "ALL-IN-ONE" SEARCH BAR */
+/* 3. APP-STYLE SEARCH BAR (Mobile Integration) */
 /* ========================================= */
 
 .search-sticky-wrapper {
   position: sticky;
-  top: 85px; /* Desktop Offset */
+  top: 85px; /* Default for Desktop (below header) */
   z-index: 900;
   background: var(--glass-bg);
   backdrop-filter: blur(25px); 
@@ -97,6 +93,7 @@ nav a:hover {
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
+/* The Flex Row: [Menu] [Search Input] [Top] */
 .search-box {
   display: flex;
   align-items: center;
@@ -120,15 +117,15 @@ nav a:hover {
   border-color: var(--primary);
 }
 
-/* Buttons (Menu & Top) */
+/* Square Buttons (Menu & Top) */
 .icon-btn {
   width: 46px;
   height: 46px; 
   border: none;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--primary);
-  font-size: 1.4rem; /* Big Icon */
+  font-size: 1.4rem; 
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -136,27 +133,33 @@ nav a:hover {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Hide Menu Button on Desktop by default */
+/* Hide Menu Button on Desktop */
 .menu-toggler { display: none; }
 
-/* Dropdown Menu Styles */
+/* Dropdown Menu (Absolute Positioned) */
 .mobile-menu-dropdown {
   display: none; /* Hidden by default */
-  margin-top: 10px;
+  position: absolute; /* Floats over content */
+  top: 100%; /* Right below the search bar */
+  left: 0;
+  width: 100%;
   background: white;
-  border-radius: 12px;
+  border-radius: 0 0 16px 16px; /* Rounded bottom */
   overflow: hidden;
   border: 1px solid rgba(0,0,0,0.1);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  margin-top: 5px;
+  z-index: 1000;
 }
 
 .mobile-menu-dropdown a {
   display: block;
-  padding: 12px 20px;
+  padding: 15px 20px;
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f0f0f0;
+  background: white;
 }
 .mobile-menu-dropdown a:last-child { border-bottom: none; }
 .mobile-menu-dropdown a:hover { background: #f5f6fa; color: var(--primary); }
@@ -196,32 +199,33 @@ h3 + ul > li > ul > li a { display: block; padding: 12px 15px; text-decoration: 
 footer { background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(10px); color: white; text-align: center; padding: 30px 0; margin-top: 80px; }
 
 /* ========================================= */
-/* 5. MOBILE SPECIFIC (The Major Logic) */
+/* 5. MOBILE SPECIFIC RULES */
 /* ========================================= */
 
 @media (max-width: 768px) {
   
-  /* HOMEPAGE FIX: Un-stick the header so it doesn't crowd the screen */
-  header {
-    position: relative; /* Scrolls away normally */
-    padding: 10px 0;
+  /* A. GLOBAL HEADER (Homepage Mobile) */
+  /* We stack Logo and Nav cleanly */
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
   }
   
-  .header-container { justify-content: center; gap: 10px; }
-  
-  /* Show the Menu Button on Mobile */
-  .menu-toggler { display: flex; }
-
-  /* SEARCH BAR FIX */
+  /* B. SEARCH BAR (Exams/Notes Mobile) */
+  /* Since we hide the global header in HTML for these pages,
+     we just need to style this bar to look like the main header. */
   .search-sticky-wrapper {
-    /* If the header is hidden (via the HTML code), this sticks to top */
-    /* If header is visible, this sticks below it. */
-    border-radius: 0; 
-    margin-left: -20px; 
-    margin-right: -20px; 
+    top: 0; /* Sticks to the very top */
+    margin: 0 -20px 20px -20px; /* Full width */
     width: calc(100% + 40px);
+    border-radius: 0 0 16px 16px;
     border-left: none;
     border-right: none;
+    border-top: none;
     padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.95); /* Solid header look */
   }
+
+  /* Show the Menu Button (Hamburger) */
+  .menu-toggler { display: flex; }
 }
