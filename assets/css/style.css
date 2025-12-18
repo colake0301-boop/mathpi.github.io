@@ -6,8 +6,7 @@
   --accent: #fdcb6e;  /* Gold */
   --text: #2d3436;
   
-  /* GLASS VARIABLES - ADJUSTED */
-  /* User Request: 0.65 Opacity for "Icy" look */
+  /* GLASS VARIABLES - ICY LOOK */
   --glass-bg: rgba(255, 255, 255, 0.65); 
   --glass-border: rgba(255, 255, 255, 0.5);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
@@ -37,7 +36,7 @@ body {
 /* 2. Frosted Glass Header */
 /* ========================================= */
 header {
-  background: rgba(255, 255, 255, 0.85); /* Navbar stays slightly more solid */
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);         
   -webkit-backdrop-filter: blur(20px); 
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
@@ -45,7 +44,8 @@ header {
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  height: 70px;
+  height: 70px; /* Fixed height for Desktop */
+  transition: height 0.3s ease;
 }
 
 .header-container {
@@ -88,11 +88,9 @@ main {
 }
 
 h1 { 
-  /* USER REQUEST: Black Title */
   color: black; 
   border-bottom: 2px solid rgba(255,255,255,0.4); 
   padding-bottom: 15px; 
-  /* Removed heavy shadow since text is black */
   text-shadow: none;
 }
 
@@ -105,10 +103,11 @@ h2 {
 /* Sticky Glass Search Bar */
 .search-sticky-wrapper {
   position: sticky;
-  top: 70px; 
+  top: 70px; /* Desktop sticky position */
   z-index: 90;
   padding: 20px 0;
   margin-bottom: 40px;
+  transition: top 0.3s ease;
 }
 
 .search-box {
@@ -144,7 +143,7 @@ h2 {
 /* ========================================= */
 
 h3 {
-  background: rgba(255, 255, 255, 0.75); /* Slightly solid top */
+  background: rgba(255, 255, 255, 0.75);
   color: var(--primary); 
   padding: 18px 30px;
   border-radius: 16px 16px 0 0;
@@ -158,7 +157,7 @@ h3 {
 }
 
 h3 + ul {
-  background: var(--glass-bg); /* Uses the 0.65 opacity */
+  background: var(--glass-bg); 
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   padding: 30px;
@@ -189,9 +188,8 @@ h3 + ul > li > ul {
   gap: 10px;
 }
 
-/* The File Rows */
 h3 + ul > li > ul > li {
-  background: rgba(255, 255, 255, 0.5); /* Inner items */
+  background: rgba(255, 255, 255, 0.5); 
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 12px;
   transition: all 0.3s ease;
@@ -240,18 +238,15 @@ h3 + ul > li > ul > li:hover a::after {
 .hero-section {
   text-align: center;
   padding: 60px 20px;
-  
-  background: var(--glass-bg); /* 0.65 Opacity */
+  background: var(--glass-bg); 
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  
   border-radius: 24px;
   box-shadow: var(--glass-shadow);
   margin-bottom: 50px;
   border: 1px solid var(--glass-border);
 }
 
-/* Force black text for the Title inside Hero */
 .hero-section h1 {
     color: black;
     text-shadow: none;
@@ -268,7 +263,6 @@ h3 + ul > li > ul > li:hover a::after {
 
 .subtitle {
   font-size: 1.25rem;
-  /* USER REQUEST: Black Text */
   color: black; 
   font-weight: 800;
   margin-top: -10px;
@@ -292,7 +286,6 @@ h3 + ul > li > ul > li:hover a::after {
 .card {
   background: var(--glass-bg); 
   backdrop-filter: var(--glass-blur);
-  
   padding: 35px 25px;
   border-radius: 20px;
   box-shadow: var(--glass-shadow);
@@ -398,9 +391,51 @@ tr:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-@media (max-width: 600px) {
-  table { display: block; overflow-x: auto; }
-  .header-container { flex-direction: column; height: auto; padding: 10px; }
-  nav { margin-top: 10px; }
-  .search-sticky-wrapper { top: 90px; }
+/* ========================================= */
+/* 7. MOBILE OPTIMIZATION (THE FIX) */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  /* 1. Reset Header Height so it can grow */
+  header {
+    height: auto; 
+    padding: 12px 0;
+  }
+
+  /* 2. Stack Logo on top, Nav below */
+  .header-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* 3. Fix the Navigation Row */
+  nav {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to form 2 lines if needed */
+    justify-content: center; /* Centers the links */
+    gap: 8px; /* Adds space between the buttons */
+    width: 100%;
+  }
+
+  /* 4. Make Links Smaller & Compact */
+  nav a {
+    margin: 0; /* Remove the big desktop margin */
+    font-size: 0.85rem; /* Smaller text size */
+    padding: 6px 12px; /* Smaller button size */
+    background: rgba(255,255,255,0.4); /* Subtle background for clarity */
+  }
+
+  /* 5. Adjust Search Bar Sticky Position */
+  /* Since header is taller now (Logo + Nav), search needs to sit lower */
+  .search-sticky-wrapper {
+    top: 110px; 
+  }
+  
+  /* 6. Allow tables to scroll horizontally on phone */
+  table { 
+    display: block; 
+    overflow-x: auto; 
+    white-space: nowrap;
+  }
 }
