@@ -107,7 +107,7 @@ h2 {
   text-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
-/* --- APP-STYLE SEARCH BAR --- */
+/* --- APP-STYLE SEARCH BAR (UNIFIED BOX FIX) --- */
 .search-sticky-wrapper {
   position: sticky;
   top: 85px; /* Desktop position */
@@ -122,44 +122,63 @@ h2 {
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
+/* THIS CONTAINER IS NOW THE "BOX" */
 .search-box {
   display: flex;
   align-items: center;
-  gap: 8px; 
   width: 100%;
-}
-
-.search-box input {
-  flex-grow: 1;
-  padding: 12px 20px;
-  font-size: 1rem;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 10px;
+  
+  /* Visual Styles moved from Input to Container */
   background: rgba(255, 255, 255, 0.75); 
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 4px; /* Space inside the box */
   transition: all 0.2s ease;
 }
 
-.search-box input:focus {
-  outline: none;
+/* When clicking anywhere in the box, the WHOLE box glows */
+.search-box:focus-within {
   background: white;
   box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
   border-color: var(--primary);
 }
 
-/* Square Buttons */
-.icon-btn {
-  width: 46px;
-  height: 46px; 
+.search-box input {
+  flex-grow: 1;
+  height: 44px; /* Fixed Height matching buttons */
+  padding: 0 12px;
+  font-size: 1rem;
+  
+  /* Input is now transparent */
   border: none;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  outline: none;
+  border-radius: 0;
+}
+
+.search-box input:focus {
+  /* No individual focus style, handled by parent */
+  background: transparent;
+}
+
+/* Square Buttons (Transparent) */
+.icon-btn {
+  width: 44px;
+  height: 44px; 
+  border: none;
+  background: transparent; /* Transparent */
+  border-radius: 8px; /* Slightly rounded for hover state */
   color: var(--primary);
   font-size: 1.4rem; 
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(0,0,0,0.1);
+  transition: background 0.2s;
+}
+
+.icon-btn:hover {
+  background: rgba(108, 92, 231, 0.1); /* Subtle hover effect */
 }
 
 .menu-toggler { display: none; }
@@ -453,11 +472,8 @@ tr:hover { background-color: rgba(255, 255, 255, 0.3); }
   /* B. Mobile App Logic */
   .menu-toggler { display: flex; }
 
-  /* FIX: WIDTH CONSISTENCY */
+  /* FIX: WIDTH CONSISTENCY (Preserved from original file) */
   .search-sticky-wrapper {
-    /* We removed the negative margins and width calc.
-       Now it stays 100% of the container, just like the cards.
-    */
     top: 0; 
     border-radius: 16px; 
     margin: 10px 0 30px 0; /* Add some spacing */
