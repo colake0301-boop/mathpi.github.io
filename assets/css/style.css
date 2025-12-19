@@ -107,38 +107,39 @@ h2 {
   text-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
-/* --- APP-STYLE SEARCH BAR (UNIFIED BOX FIX) --- */
+/* --- APP-STYLE SEARCH BAR (UNIFIED & GLASS) --- */
 .search-sticky-wrapper {
   position: sticky;
   top: 85px; /* Desktop position */
   z-index: 90;
-  background: var(--glass-bg);
-  backdrop-filter: blur(25px); 
-  -webkit-backdrop-filter: blur(25px);
-  padding: 10px;
+  /* The wrapper itself is transparent now, letting the inner box handle the look */
+  background: transparent; 
+  padding: 10px 0; /* Removed side padding so inner box aligns */
   margin-bottom: 40px;
-  border-radius: 16px; 
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-/* THIS CONTAINER IS NOW THE "BOX" */
+/* THIS CONTAINER IS NOW THE GLASS BOX */
 .search-box {
   display: flex;
   align-items: center;
   width: 100%;
   
-  /* Visual Styles moved from Input to Container */
-  background: rgba(255, 255, 255, 0.75); 
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 12px;
+  /* === THE FIX: Use the shared glass variables === */
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  /* =============================================== */
+
+  border-radius: 16px;
   padding: 4px; /* Space inside the box */
   transition: all 0.2s ease;
+  box-shadow: var(--glass-shadow);
 }
 
-/* When clicking anywhere in the box, the WHOLE box glows */
+/* When clicking anywhere in the box, make it slightly more solid */
 .search-box:focus-within {
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
   box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
   border-color: var(--primary);
 }
@@ -149,16 +150,11 @@ h2 {
   padding: 0 12px;
   font-size: 1rem;
   
-  /* Input is now transparent */
+  /* Input remains transparent */
   border: none;
   background: transparent;
   outline: none;
   border-radius: 0;
-}
-
-.search-box input:focus {
-  /* No individual focus style, handled by parent */
-  background: transparent;
 }
 
 /* Square Buttons (Transparent) */
@@ -167,7 +163,7 @@ h2 {
   height: 44px; 
   border: none;
   background: transparent; /* Transparent */
-  border-radius: 8px; /* Slightly rounded for hover state */
+  border-radius: 12px; 
   color: var(--primary);
   font-size: 1.4rem; 
   cursor: pointer;
@@ -190,10 +186,15 @@ h2 {
   top: 100%; 
   left: 0;
   width: 100%;
-  background: white;
+  
+  /* Ensure dropdown is also glass */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+
   border-radius: 0 0 16px 16px; 
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.1);
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   margin-top: 5px;
   z-index: 1000;
@@ -205,9 +206,9 @@ h2 {
   text-decoration: none;
   color: #333;
   font-weight: 600;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
-.mobile-menu-dropdown a:hover { background: #f5f6fa; color: var(--primary); }
+.mobile-menu-dropdown a:hover { background: rgba(108, 92, 231, 0.1); color: var(--primary); }
 
 
 /* ========================================= */
@@ -472,12 +473,16 @@ tr:hover { background-color: rgba(255, 255, 255, 0.3); }
   /* B. Mobile App Logic */
   .menu-toggler { display: flex; }
 
-  /* FIX: WIDTH CONSISTENCY (Preserved from original file) */
+  /* SEARCH BAR FIXED TO MATCH CARDS */
   .search-sticky-wrapper {
-    top: 0; 
-    border-radius: 16px; 
-    margin: 10px 0 30px 0; /* Add some spacing */
-    background: rgba(255, 255, 255, 0.95); 
+    top: 0;
+    padding: 10px 0; /* Keep it aligned with content */
+    margin: 10px 0 30px 0; 
+  }
+  
+  /* Ensure the box itself has the right mobile border radius */
+  .search-box {
+     border-radius: 16px;
   }
   
   table { 
