@@ -104,6 +104,9 @@ title: Exams
   * [Midterm Exam Paper](./exams/MAT4033/MAT4033_2023_Midterm.pdf)
   * [Final Exam Paper](./exams/MAT4033/MAT4033_2023_Final.pdf)
 
+### MAT5210: Advanced Abstract Algebra I: Galois Theory and Algebraic Number Theory
+* **2025**
+  * [Midterm Exam Paper](./exams/)
 
 ### LongFeng Math Contest
 * **2024**
