@@ -87,6 +87,7 @@ title: Exams
   * [Final Exam Paper](./exams/MAT3040/MAT3040_2024_Final.pdf)
 
 
+
 ### MAT4002: Topology and Geometry
 * **2024**
   * [Midterm Exam Paper](./exams/MAT4002/Mat4002%20Year%202024%20Midterm.pdf)
@@ -107,6 +108,25 @@ title: Exams
 ### MAT5210: Advanced Abstract Algebra I: Galois Theory and Algebraic Number Theory
 * **2025**
   * [Midterm Exam Paper](./exams/)
+
+### STA4001: Stochastic Processes
+* **2023**
+  * [Midterm Exam](./exams/STA4001/STA4001_2023_Mid.pdf)
+  * [Midterm Solutions](./exams/STA4001/STA4001_2023_Mid.pdf)
+  * [Final Exam](./exams/STA4001/STA4001_2023_Final.pdf)
+
+* **2022**
+  * [Final Exam](./exams/STA4001/STA4001_2022_Final.pdf)
+  * [Final Exam (Retake)](./exams/STA4001/STA4001_2022_Final.pdf)
+
+### MAT3280: Probability Theory
+* **2023**
+  * [Midterm Exam](./exams/MAT3280/MAT3280_2023_Mid.pdf)
+  * [Final Exam](./exams/MAT3280/MAT3280_2023_Final.pdf)
+
+* **2022**
+  * [Midterm Exam](./exams/MAT3280/MAT3280_2022_Mid.pdf)
+  * [Final Exam](./exams/MAT3280/MAT3280_2022_Final.pdf)
 
 ### LongFeng Math Contest
 * **2024**
