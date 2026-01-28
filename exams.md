@@ -89,6 +89,19 @@ title: Exams
   * [Midterm Exam Paper](./exams/MAT3040/MAT3040_2024_Midterm.pdf)
   * [Final Exam Paper](./exams/MAT3040/MAT3040_2024_Final.pdf)
 
+### MAT3280: Probability Theory
+* **2023**
+  * [Midterm Exam](./exams/MAT3280/MAT3280_2023_Mid.pdf)
+  * [Final Exam](./exams/MAT3280/MAT3280_2023_Final.pdf)
+
+* **2022**
+  * [Midterm Exam](./exams/MAT3280/MAT3280_2022_Mid.pdf)
+  * [Final Exam](./exams/MAT3280/MAT3280_2022_Final.pdf)
+
+### LongFeng Math Contest
+* **2024**
+  * [Paper for Math major](./exams/Contest/2024_math.pdf)
+  * [Paper for Non-Math major](./exams/Contest/2024_nonmath.pdf)
 
 ### MAT4002: Topology and Geometry
 * **2024**
@@ -124,17 +137,3 @@ title: Exams
 * **2020**
   * [Final Exam Spring](./exams/STA4001/STA4001_2020Spring_Final.pdf)
   * [Final Exam Fall](./exams/STA4001/STA4001_2020Fall_Final.pdf)
-
-### MAT3280: Probability Theory
-* **2023**
-  * [Midterm Exam](./exams/MAT3280/MAT3280_2023_Mid.pdf)
-  * [Final Exam](./exams/MAT3280/MAT3280_2023_Final.pdf)
-
-* **2022**
-  * [Midterm Exam](./exams/MAT3280/MAT3280_2022_Mid.pdf)
-  * [Final Exam](./exams/MAT3280/MAT3280_2022_Final.pdf)
-
-### LongFeng Math Contest
-* **2024**
-  * [Paper for Math major](./exams/Contest/2024_math.pdf)
-  * [Paper for Non-Math major](./exams/Contest/2024_nonmath.pdf)
