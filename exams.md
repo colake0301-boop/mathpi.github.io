@@ -44,6 +44,9 @@ title: Exams
   * [Final Exam Paper](./exams/MAT2040/MAT2040_2022_Final.pdf)
 * **2021**
   * [Final Exam Paper](./exams/MAT2040/MAT2040_2021Spring_Final.pdf)
+  * [Midterm Exam Paper](./exams/MAT2040/MAT2040_2021_Mid.pdf)
+* **2020**
+  * [Mideterm Exam Paper](./exams/MAT2040/MAT2040_2020_Mid.pdf)
 * **2019**
   * [Final Exam Peper](./exams/MAT2040/MAT2040_2019_Final.pdf)
 * **2018**
@@ -87,7 +90,6 @@ title: Exams
   * [Final Exam Paper](./exams/MAT3040/MAT3040_2024_Final.pdf)
 
 
-
 ### MAT4002: Topology and Geometry
 * **2024**
   * [Midterm Exam Paper](./exams/MAT4002/Mat4002%20Year%202024%20Midterm.pdf)
@@ -112,12 +114,16 @@ title: Exams
 ### STA4001: Stochastic Processes
 * **2023**
   * [Midterm Exam](./exams/STA4001/STA4001_2023_Mid.pdf)
-  * [Midterm Solutions](./exams/STA4001/STA4001_2023_Mid.pdf)
   * [Final Exam](./exams/STA4001/STA4001_2023_Final.pdf)
-
 * **2022**
+  * [Midterm Exam](./exams/STA4001/STA4001_2021_Mid.pdf)
   * [Final Exam](./exams/STA4001/STA4001_2022_Final.pdf)
-  * [Final Exam (Retake)](./exams/STA4001/STA4001_2022_Final.pdf)
+* **2021**
+  * [Midterm Exam](./exams/STA4001/STA4001_2021_Mid.pdf)
+  * [Final Exam](./exams/STA4001/STA4001_2021_Final.pdf)
+* **2020**
+  * [Final Exam Spring](./exams/STA4001/STA4001_2020Spring_Final.pdf)
+  * [Final Exam Fall](./exams/STA4001/STA4001_2020Fall_Final.pdf)
 
 ### MAT3280: Probability Theory
 * **2023**
