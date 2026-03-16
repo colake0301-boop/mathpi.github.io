@@ -39,6 +39,11 @@ title: Exams
 * **2022**
   * [Midterm Exam Paper](./exams/MAT1012/MAT1012_2022_Midterm.pdf)
 
+### MAT2001: Honor Ordinary Difeerential Equation
+* **2025**
+  * [Midterm Exam Paper](./exams/MAT2001/2025_MAT2001_Midterm.pdf)
+  * [Final Exam Paper](./exams/MAT2001/2025_MAT2001_Final_Exam.pdf)
+
 ### MAT2040: Lineat Algebra
 * **2022**
   * [Final Exam Paper](./exams/MAT2040/MAT2040_2022_Final.pdf)
