@@ -3,43 +3,76 @@ layout: default
 title: MathPi Home
 ---
 
-<div class="hero-section">
-  <img src="./assets/images/cuhk_logo.png" alt="CUHK-Shenzhen Logo" class="school-badge">
-  <h1>Welcome to <span class="hero-pi">MathPi 🥧</span></h1>
-  <p class="subtitle">The Central Resource Hub for CUHK-Shenzhen Math Students</p>
-  <p class="mission">We archive knowledge, share wisdom, and build the math community.</p>
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <p class="hero-eyebrow">CUHK-Shenzhen &middot; Mathematics</p>
+  <h1>Your math resources.<br><span class="hero-accent">All in one place.</span></h1>
+  <p class="hero-sub">Past exams, lecture notes, and study guides — organized and searchable for every CUHK-SZ math student.</p>
+  <div class="hero-cta">
+    <a href="./exams.html" class="btn-primary">Browse Exams &rarr;</a>
+    <a href="./notes.html" class="btn-ghost">View Notes &rarr;</a>
+  </div>
+</section>
+
+<!-- ====== STATS BAR ====== -->
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-num">15+</span>
+    <span class="stat-label">Courses</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">100+</span>
+    <span class="stat-label">Exam Papers</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">Free</span>
+    <span class="stat-label">Always</span>
+  </div>
 </div>
 
-<div class="card-grid">
+<!-- ====== FEATURE CARDS ====== -->
+<div class="home-section">
+  <p class="section-eyebrow">Resources</p>
+  <h2 class="section-headline">Everything you need to succeed.</h2>
+  <p class="section-sub">Curated materials across math and statistics — from Calculus to Galois Theory.</p>
 
-  <a href="./exams.html" class="card">
-    <div class="icon">📑</div>
-    <h3>Exam Archive</h3>
-    <p>Access past midterms and finals for Calculus, Analysis, and more.</p>
-  </a>
+  <div class="card-grid">
 
-  <a href="./notes.html" class="card">
-    <div class="icon">📓</div>
-    <h3>Lecture Notes</h3>
-    <p>Review slides, typed notes, and study guides from top students.</p>
-  </a>
+    <a href="./exams.html" class="card reveal">
+      <span class="card-icon">📑</span>
+      <p class="card-title">Exam Archive</p>
+      <p class="card-desc">Access past midterms and finals for Calculus, Analysis, Linear Algebra, Topology, and more.</p>
+      <span class="card-link">Browse exams &rarr;</span>
+    </a>
 
-  <a href="./activities.html" class="card">
-    <div class="icon">📅</div>
-    <h3>Activity Log</h3>
-    <p>Check upcoming reviews, workshops, and math competitions.</p>
-  </a>
+    <a href="./notes.html" class="card reveal">
+      <span class="card-icon">📓</span>
+      <p class="card-title">Lecture Notes</p>
+      <p class="card-desc">Review slides, typed notes, problem sets, and study guides contributed by top students.</p>
+      <span class="card-link">View notes &rarr;</span>
+    </a>
 
+    <a href="./activities.html" class="card reveal">
+      <span class="card-icon">📅</span>
+      <p class="card-title">Activity Log</p>
+      <p class="card-desc">Check past review sessions, workshop slides, and math competition papers.</p>
+      <span class="card-link">See activities &rarr;</span>
+    </a>
+
+  </div>
 </div>
 
-<div class="updates-section">
-  <h2>📢 Latest Updates</h2>
-  <ul>
-    <li><strong>May 2026:</strong> MAT2042 Honor Linear Algebra midterm review slides uploaded.</li>
-    <li><strong>Dec 2025:</strong> MAT3006 Real Analysis Final papers uploaded.</li>
-    <li><strong>Nov 2025:</strong> Added review slides for MAT2060.</li>
-  </ul>
-  <div class="contact-box">
-    Questions? <a href="mailto:mathpi@link.cuhk.edu.cn">Email the MathPi Team</a>
+<!-- ====== UPDATES ====== -->
+<div class="updates-band">
+  <div class="updates-inner">
+    <h2>Latest Updates</h2>
+    <ul class="updates-list">
+      <li><strong>May 2026 —</strong> MAT2042 Honor Linear Algebra midterm review slides uploaded.</li>
+      <li><strong>Dec 2025 —</strong> MAT3006 Real Analysis Final papers now available.</li>
+      <li><strong>Nov 2025 —</strong> MAT2060 review slides added to the notes archive.</li>
+    </ul>
+    <p class="contact-row">
+      Questions or want to contribute? <a href="mailto:mathpi@link.cuhk.edu.cn">Contact the MathPi team</a>
+    </p>
   </div>
 </div>

@@ -6,81 +6,175 @@
   <title>{{ page.title }} | MathPi</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header id="globalHeader">
-    <div class="header-inner">
-      <div class="container header-container">
-        <div class="logo">
-          <a href="{{ '/' | relative_url }}">MathPi <span style="font-size:1.1rem;">🥧</span></a>
-        </div>
-        <nav>
-          <a href="{{ '/' | relative_url }}"          {% if page.url == '/' or page.url == '/index.html' %}class="nav-active"{% endif %}>Home</a>
-          <a href="{{ '/exams.html' | relative_url }}" {% if page.url contains 'exams' %}class="nav-active"{% endif %}>Exams</a>
-          <a href="{{ '/notes.html' | relative_url }}" {% if page.url contains 'notes' %}class="nav-active"{% endif %}>Notes</a>
-          <a href="{{ '/activities.html' | relative_url }}" {% if page.url contains 'activities' %}class="nav-active"{% endif %}>Activities</a>
-        </nav>
+<!-- ===================== HEADER ===================== -->
+<header id="site-header">
+  <div class="nav-wrap">
+    <a class="nav-logo" href="{{ '/' | relative_url }}">MathPi<span class="nav-logo-pi">π</span></a>
+
+    <nav class="nav-links">
+      <a href="{{ '/' | relative_url }}"                {% if page.url == '/' or page.url == '/index.html' %}class="active"{% endif %}>Home</a>
+      <a href="{{ '/exams.html' | relative_url }}"      {% if page.url contains 'exams' %}class="active"{% endif %}>Exams</a>
+      <a href="{{ '/notes.html' | relative_url }}"      {% if page.url contains 'notes' %}class="active"{% endif %}>Notes</a>
+      <a href="{{ '/activities.html' | relative_url }}" {% if page.url contains 'activities' %}class="active"{% endif %}>Activities</a>
+    </nav>
+
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/exams.html' | relative_url }}">Exams</a>
+    <a href="{{ '/notes.html' | relative_url }}">Notes</a>
+    <a href="{{ '/activities.html' | relative_url }}">Activities</a>
+  </div>
+</header>
+<!-- ================================================== -->
+
+
+{% if page.url contains 'exams' or page.url contains 'notes' %}
+<!-- ============ TWO-COLUMN DOC LAYOUT ============ -->
+<div class="doc-layout">
+
+  <aside class="doc-sidebar" id="docSidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-search">
+        <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="8.5" cy="8.5" r="5.5"/><path d="M15 15l-3-3"/>
+        </svg>
+        <input id="searchInput" type="search" placeholder="Search courses…" oninput="filterCourses(this.value)" autocomplete="off">
       </div>
+      <p class="sidebar-heading">Courses</p>
+      <nav class="sidebar-toc" id="tocNav"></nav>
     </div>
-  </header>
+  </aside>
 
-  <main>
-    <div class="container">
-
-      {% if page.url contains 'exams' or page.url contains 'notes' %}
-
-      <style>
-        @media (max-width: 768px) {
-          #globalHeader { display: none !important; }
-        }
-      </style>
-
-      <div class="search-sticky-wrapper" style="position:relative;">
-        <div class="search-box">
-          <button class="icon-btn menu-toggler" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
-          <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search course code...">
-          <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="icon-btn" aria-label="Top">⬆</button>
-        </div>
-        <div id="mobileDropdown" class="mobile-menu-dropdown">
-          <a href="{{ site.baseurl }}/">Home</a>
-          <a href="{{ site.baseurl }}/exams">Exams</a>
-          <a href="{{ site.baseurl }}/notes">Notes</a>
-          <a href="{{ site.baseurl }}/activities">Activities</a>
-        </div>
-      </div>
-
-      {% endif %}
-
-      {{ content }}
-
-    </div>
+  <main class="doc-main" id="docMain">
+    {{ content }}
   </main>
 
-  <footer>
-    <div class="container">
-      <p>© 2025 MathPi · CUHK-Shenzhen Student Archive</p>
-      <p>Built for students, by students.</p>
-    </div>
-  </footer>
+</div>
+<!-- ================================================ -->
 
-  <script>
-    function toggleMobileMenu() {
-      var menu = document.getElementById("mobileDropdown");
-      menu.style.display = (menu.style.display === "block") ? "none" : "block";
-    }
 
-    function filterCourses() {
-      var filter = document.getElementById("searchInput").value.toUpperCase();
-      document.querySelectorAll("h3").forEach(function(h3) {
-        var ul = h3.nextElementSibling;
-        var matches = (h3.innerText || h3.textContent).toUpperCase().indexOf(filter) > -1;
-        h3.style.display  = matches ? "" : "none";
-        if (ul) ul.style.display = matches ? "" : "none";
-      });
-    }
-  </script>
+{% elsif page.url == '/' or page.url == '/index.html' %}
+<!-- ============ HOMEPAGE (full-width) ============ -->
+{{ content }}
+<!-- ================================================ -->
+
+
+{% else %}
+<!-- ============ STANDARD PAGE ============ -->
+<div class="std-page">
+  <main class="std-main">{{ content }}</main>
+</div>
+<!-- ========================================= -->
+{% endif %}
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">MathPi</span>
+    <span class="footer-sep">·</span>
+    <span>© 2025 CUHK-Shenzhen Student Archive</span>
+    <span class="footer-sep">·</span>
+    <span>Built for students, by students.</span>
+  </div>
+</footer>
+<!-- ================================================== -->
+
+
+<script>
+/* ---- Mobile hamburger ---- */
+(function () {
+  var btn  = document.getElementById('hamburgerBtn');
+  var drawer = document.getElementById('mobileDrawer');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var open = drawer.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open);
+    drawer.setAttribute('aria-hidden', !open);
+  });
+})();
+
+/* ---- Build sidebar TOC from h3 elements ---- */
+function buildTOC() {
+  var tocNav = document.getElementById('tocNav');
+  if (!tocNav) return;
+  var headings = document.querySelectorAll('.doc-main h3');
+  headings.forEach(function (h3, i) {
+    /* Ensure every h3 has an id (Kramdown auto-generates these, but just in case) */
+    if (!h3.id) h3.id = 'course-' + i;
+    var a = document.createElement('a');
+    a.className = 'toc-link';
+    a.href = '#' + h3.id;
+    a.textContent = h3.textContent.trim();
+    a.dataset.target = h3.id;
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var el = document.getElementById(h3.id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    tocNav.appendChild(a);
+  });
+
+  /* Highlight active TOC item while scrolling */
+  if (!window.IntersectionObserver) return;
+  var links = tocNav.querySelectorAll('.toc-link');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        links.forEach(function (a) {
+          a.classList.toggle('toc-active', a.dataset.target === entry.target.id);
+        });
+      }
+    });
+  }, { rootMargin: '-5% 0px -80% 0px' });
+  headings.forEach(function (h) { io.observe(h); });
+}
+
+/* ---- Filter courses + dim TOC ---- */
+function filterCourses(q) {
+  var filter = (q || '').trim().toUpperCase();
+  var headings = document.querySelectorAll('.doc-main h3');
+  headings.forEach(function (h3) {
+    var visible = !filter || h3.textContent.toUpperCase().indexOf(filter) > -1;
+    h3.style.display = visible ? '' : 'none';
+    var ul = h3.nextElementSibling;
+    if (ul) ul.style.display = visible ? '' : 'none';
+    var link = document.querySelector('.toc-link[data-target="' + h3.id + '"]');
+    if (link) link.classList.toggle('toc-dim', !visible);
+  });
+}
+
+/* ---- Scroll-reveal for .reveal elements ---- */
+function initReveal() {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  if (!window.IntersectionObserver) {
+    els.forEach(function (el) { el.classList.add('revealed'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(function (el) { io.observe(el); });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  buildTOC();
+  initReveal();
+});
+</script>
 
 </body>
 </html>
