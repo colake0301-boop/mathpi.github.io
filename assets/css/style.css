@@ -223,15 +223,18 @@ body {
 .btn-ghost {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  color: var(--navy-2);
+  gap: 6px;
+  color: var(--navy);
   text-decoration: none;
   font-size: .9rem;
-  font-weight: 500;
-  padding: 12px 14px;
-  transition: color .15s;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 980px;
+  border: 1.5px solid var(--navy);
+  letter-spacing: .1px;
+  transition: background .18s, color .18s;
 }
-.btn-ghost:hover { color: var(--navy); text-decoration: underline; }
+.btn-ghost:hover { background: var(--navy); color: var(--white); }
 
 /* =========================================
    5. Stats Bar
