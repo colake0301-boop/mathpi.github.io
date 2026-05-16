@@ -4,29 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | MathPi</title>
-  
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header id="globalHeader">
-    <div class="container header-container">
-      <div class="logo">
-        <a href="{{ '/' | relative_url }}">MathPi 🥧</a>
+    <div class="header-inner">
+      <div class="container header-container">
+        <div class="logo">
+          <a href="{{ '/' | relative_url }}">MathPi <span style="font-size:1.1rem;">🥧</span></a>
+        </div>
+        <nav>
+          <a href="{{ '/' | relative_url }}"          {% if page.url == '/' or page.url == '/index.html' %}class="nav-active"{% endif %}>Home</a>
+          <a href="{{ '/exams.html' | relative_url }}" {% if page.url contains 'exams' %}class="nav-active"{% endif %}>Exams</a>
+          <a href="{{ '/notes.html' | relative_url }}" {% if page.url contains 'notes' %}class="nav-active"{% endif %}>Notes</a>
+          <a href="{{ '/activities.html' | relative_url }}" {% if page.url contains 'activities' %}class="nav-active"{% endif %}>Activities</a>
+        </nav>
       </div>
-      <nav>
-        <a href="{{ '/' | relative_url }}">🏠 Home</a>
-        <a href="{{ '/exams.html' | relative_url }}">📑 Exams</a>
-        <a href="{{ '/notes.html' | relative_url }}">📓 Notes</a>
-        <a href="{{ '/activities.html' | relative_url }}">📅 Activities</a>
-      </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
-      
+
       {% if page.url contains 'exams' or page.url contains 'notes' %}
 
       <style>
@@ -35,79 +37,50 @@
         }
       </style>
 
-      <div class="search-sticky-wrapper">
+      <div class="search-sticky-wrapper" style="position:relative;">
         <div class="search-box">
-          
-          <button class="icon-btn menu-toggler" onclick="toggleMobileMenu()" aria-label="Menu">
-            ☰
-          </button>
-
-          <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="🔍 Search code...">
-          
-          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="icon-btn" aria-label="Top">
-            ⬆
-          </button>
+          <button class="icon-btn menu-toggler" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+          <input type="text" id="searchInput" onkeyup="filterCourses()" placeholder="Search course code...">
+          <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="icon-btn" aria-label="Top">⬆</button>
         </div>
-
         <div id="mobileDropdown" class="mobile-menu-dropdown">
-          <a href="{{ site.baseurl }}/">🏠 Home</a>
-          <a href="{{ site.baseurl }}/exams">📑 Exams</a>
-          <a href="{{ site.baseurl }}/notes">📓 Notes</a>
-          <a href="{{ site.baseurl }}/activities">📅 Activities</a>
+          <a href="{{ site.baseurl }}/">Home</a>
+          <a href="{{ site.baseurl }}/exams">Exams</a>
+          <a href="{{ site.baseurl }}/notes">Notes</a>
+          <a href="{{ site.baseurl }}/activities">Activities</a>
         </div>
       </div>
 
-      <script>
-        function toggleMobileMenu() {
-          var menu = document.getElementById("mobileDropdown");
-          if (menu.style.display === "block") {
-            menu.style.display = "none";
-          } else {
-            menu.style.display = "block";
-          }
-        }
-      </script>
-
       {% endif %}
+
       {{ content }}
-      
+
     </div>
   </main>
 
   <footer>
     <div class="container">
-      <p>© 2025 MathPi - CUHK-Shenzhen Student Archive</p>
+      <p>© 2025 MathPi · CUHK-Shenzhen Student Archive</p>
       <p>Built for students, by students.</p>
     </div>
   </footer>
 
   <script>
+    function toggleMobileMenu() {
+      var menu = document.getElementById("mobileDropdown");
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+
     function filterCourses() {
-      // 1. Get the search term
-      var input = document.getElementById("searchInput");
-      var filter = input.value.toUpperCase();
-      
-      // 2. Select all Course Headers (h3 tags)
-      var headers = document.querySelectorAll("h3");
-      
-      // 3. Loop through them to hide/show based on search
-      headers.forEach(h3 => {
-        var ul = h3.nextElementSibling; 
-        var text = h3.innerText || h3.textContent;
-        
-        if (text.toUpperCase().indexOf(filter) > -1) {
-          h3.style.display = "";       
-          if(ul) ul.style.display = ""; 
-        } else {
-          h3.style.display = "none";    
-          if(ul) ul.style.display = "none"; 
-        }
+      var filter = document.getElementById("searchInput").value.toUpperCase();
+      document.querySelectorAll("h3").forEach(function(h3) {
+        var ul = h3.nextElementSibling;
+        var matches = (h3.innerText || h3.textContent).toUpperCase().indexOf(filter) > -1;
+        h3.style.display  = matches ? "" : "none";
+        if (ul) ul.style.display = matches ? "" : "none";
       });
     }
   </script>
 
 </body>
 </html>
-
-
-
