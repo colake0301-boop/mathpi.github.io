@@ -5,7 +5,7 @@ title: MathPi Home
 
 <div class="hero-section">
   <img src="./assets/images/cuhk_logo.png" alt="CUHK-Shenzhen Logo" class="school-badge">
-  <h1>Welcome to <span class="hero-pi">MathPi</span> 🥧</h1>
+  <h1>Welcome to <span class="hero-pi">MathPi 🥧</span></h1>
   <p class="subtitle">The Central Resource Hub for CUHK-Shenzhen Math Students</p>
   <p class="mission">We archive knowledge, share wisdom, and build the math community.</p>
 </div>
