@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | MathPi</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M' }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
@@ -27,7 +27,7 @@
     </button>
   </div>
 
-  <div class="nav-mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="nav-mobile-drawer" id="mobileDrawer" style="display:none" aria-hidden="true">
     <a href="{{ '/' | relative_url }}">Home</a>
     <a href="{{ '/exams.html' | relative_url }}">Exams</a>
     <a href="{{ '/notes.html' | relative_url }}">Notes</a>
@@ -93,14 +93,15 @@
 <script>
 /* ---- Mobile hamburger ---- */
 (function () {
-  var btn  = document.getElementById('hamburgerBtn');
+  var btn    = document.getElementById('hamburgerBtn');
   var drawer = document.getElementById('mobileDrawer');
-  if (!btn) return;
+  if (!btn || !drawer) return;
   btn.addEventListener('click', function () {
-    var open = drawer.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open);
-    drawer.setAttribute('aria-hidden', !open);
+    var opening = drawer.style.display === 'none' || drawer.style.display === '';
+    drawer.style.display = opening ? 'flex' : 'none';
+    btn.classList.toggle('open', opening);
+    btn.setAttribute('aria-expanded', opening);
+    drawer.setAttribute('aria-hidden', !opening);
   });
 })();
 
