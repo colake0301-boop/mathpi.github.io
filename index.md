@@ -15,7 +15,6 @@ title: MathPi Home
 <div class="stats-bar">
 <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Courses</span></div>
 <div class="stat"><span class="stat-num">100+</span><span class="stat-label">Exam Papers</span></div>
-<div class="stat"><span class="stat-num">Free</span><span class="stat-label">Always</span></div>
 </div>
 
 <div class="home-section">
