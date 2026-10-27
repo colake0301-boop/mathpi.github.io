@@ -3,11 +3,11 @@ layout: default
 title: Notes and Slides
 ---
 
-### MAT1011：Honor Caculus
+### MAT1011: Honor Calculus
 * **2025**
   * [Final Review Lectures](./notes/MAT1011/MAT1011_2025_Final_slides.pptx)
 
-### MAT2042：Honor Linear Algebra
+### MAT2042: Honor Linear Algebra
 * **2026**
   * [Midterm Review Lecture](./notes/MAT2042/MAT2042_Midterm_Review.pdf)
 
@@ -37,8 +37,6 @@ title: Notes and Slides
 ### MAT4033: Differential Geometry
 * **Typed Lecture Notes** 
   * [MAT4033 Notes](./notes/MAT4033/MAT4033_note.pdf)
-* **2026** 
-  * [Final Review Lectures](./notes/MAT4033/MAT4033_2026_Final_slides.pdf)
 
 ### STA2001: Probability and Statistics
 * **2026**

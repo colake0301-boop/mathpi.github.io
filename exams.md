@@ -31,6 +31,8 @@ title: Exams
 ### MAT1011: Honor Calculus I
 * **2024**
   * [Midterm Exam Paper](./exams/MAT1011/MAT1011_2024_Midterm.pdf)
+* **2023**
+  * [Midterm Exam Paper](./exams/MAT1011/MAT1011_2023_Midterm.pdf)
 
 
 ### MAT1012: Honor Calculus II
@@ -39,21 +41,21 @@ title: Exams
 * **2022**
   * [Midterm Exam Paper](./exams/MAT1012/MAT1012_2022_Midterm.pdf)
 
-### MAT2001: Honor Ordinary Difeerential Equation
+### MAT2001: Honor Ordinary Differential Equation
 * **2025**
   * [Midterm Exam Paper](./exams/MAT2001/2025_MAT2001_Midterm.pdf)
   * [Final Exam Paper](./exams/MAT2001/2025_MAT2001_Final_Exam.pdf)
 
-### MAT2040: Lineat Algebra
+### MAT2040: Linear Algebra
 * **2022**
   * [Final Exam Paper](./exams/MAT2040/MAT2040_2022_Final.pdf)
 * **2021**
   * [Final Exam Paper](./exams/MAT2040/MAT2040_2021Spring_Final.pdf)
   * [Midterm Exam Paper](./exams/MAT2040/MAT2040_2021_Mid.pdf)
 * **2020**
-  * [Mideterm Exam Paper](./exams/MAT2040/MAT2040_2020_Mid.pdf)
+  * [Midterm Exam Paper](./exams/MAT2040/MAT2040_2020_Mid.pdf)
 * **2019**
-  * [Final Exam Peper](./exams/MAT2040/MAT2040_2019_Final.pdf)
+  * [Final Exam Paper](./exams/MAT2040/MAT2040_2019_Final.pdf)
 * **2018**
   * [Final Exam Paper](./exams/MAT2040/MAT2040_2018Summer_Final.pdf)
 
@@ -86,7 +88,7 @@ title: Exams
 * **2020**
   * [Final Exam Paper](./exams/MAT3007/MAT3007_2020Fall_Final.pdf)
 * **2019**
-  * [Midterm Exam Paper](./exams/MAT3007/MAT3007_2019Fall_Miderm_Solution.pdf)
+  * [Midterm Exam Paper](./exams/MAT3007/MAT3007_2019Fall_Midterm_Solution.pdf)
 
 
 ### MAT3040: Linear Algebra
@@ -99,9 +101,9 @@ title: Exams
   * [Midterm Exam](./exams/MAT3280/MAT3280_2023_Mid.pdf)
   * [Final Exam](./exams/MAT3280/MAT3280_2023_Final.pdf)
 
-* **2022**
-  * [Midterm Exam](./exams/MAT3280/MAT3280_2022_Mid.pdf)
-  * [Final Exam](./exams/MAT3280/MAT3280_2022_Final.pdf)
+* **2024**
+  * [Midterm Exam](./exams/MAT3280/MAT3280_2024_Mid.pdf)
+  * [Final Exam](./exams/MAT3280/MAT3280_2024_Final.pdf)
 
 ### LongFeng Math Contest
 * **2024**
@@ -125,16 +127,12 @@ title: Exams
   * [Midterm Exam Paper](./exams/MAT4033/MAT4033_2023_Midterm.pdf)
   * [Final Exam Paper](./exams/MAT4033/MAT4033_2023_Final.pdf)
 
-### MAT5210: Advanced Abstract Algebra I: Galois Theory and Algebraic Number Theory
-* **2025**
-  * [Midterm Exam Paper](./exams/)
-
 ### STA4001: Stochastic Processes
 * **2023**
   * [Midterm Exam](./exams/STA4001/STA4001_2023_Mid.pdf)
   * [Final Exam](./exams/STA4001/STA4001_2023_Final.pdf)
 * **2022**
-  * [Midterm Exam](./exams/STA4001/STA4001_2021_Mid.pdf)
+  * [Midterm Exam](./exams/STA4001/STA4001_2022_Mid.pdf)
   * [Final Exam](./exams/STA4001/STA4001_2022_Final.pdf)
 * **2021**
   * [Midterm Exam](./exams/STA4001/STA4001_2021_Mid.pdf)
