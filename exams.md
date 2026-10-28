@@ -127,6 +127,14 @@ title: Exams
   * [Midterm Exam Paper](./exams/MAT4033/MAT4033_2023_Midterm.pdf)
   * [Final Exam Paper](./exams/MAT4033/MAT4033_2023_Final.pdf)
 
+### MAT5210： Galois Theory and Algebraic Number Theory
+* **2025**
+  * [Midterm Exam](./exams/MAT5210/MAT5210_2025_Midterm.pdf)
+* **2024**
+  * [Midterm Exam](./exams/MAT5210/MAT5210_2025_Midterm.pdf)
+* **2021**
+  * [Final Exam](./exams/MAT5210/MAT5210_2021_Final.pdf)
+
 ### STA4001: Stochastic Processes
 * **2023**
   * [Midterm Exam](./exams/STA4001/STA4001_2023_Mid.pdf)
