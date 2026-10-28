@@ -131,7 +131,7 @@ title: Exams
 * **2025**
   * [Midterm Exam](./exams/MAT5210/MAT5210_2025_Midterm.pdf)
 * **2024**
-  * [Midterm Exam](./exams/MAT5210/MAT5210_2025_Midterm.pdf)
+  * [Midterm Exam](./exams/MAT5210/MAT5210_2024_Midterm.pdf)
 * **2021**
   * [Final Exam](./exams/MAT5210/MAT5210_2021_Final.pdf)
 
